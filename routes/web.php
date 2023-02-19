@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\LoginController;
 
 
 /*
@@ -24,3 +25,7 @@ Route::get('/add_book', function () {
 Route::get('/view_book', function () {
     return view('Admin_Dashboard.View_Booking');
 })->name('view_book');
+
+Route::resources([
+    'users' => LoginController::class
+]);
