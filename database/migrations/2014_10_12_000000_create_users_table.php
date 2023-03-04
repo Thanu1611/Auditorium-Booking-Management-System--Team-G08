@@ -19,10 +19,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->integer('mobile');
-            $table->enum('userType', ['Internal', 'External']);
-            $table->string('faculty');
-            $table->string('department');
-            $table->string('designation');
+            $table->enum('role', ['admin', 'customer']);
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
