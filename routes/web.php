@@ -24,3 +24,28 @@ Route::get('/add_book', function () {
 Route::get('/view_book', function () {
     return view('Admin_Dashboard.View_Booking');
 })->name('view_book');
+
+
+/*Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('a/', function () {
+    return view('view');
+});
+
+Route::get('K/', function () {
+    return view('K');
+});
+
+Route::get('C/', function () {
+    return view('C');
+});
+
+Route::get('L/', function () {
+    return view('L');
+});
+
+Route::get('P/', function () {
+    return view('P');
+});*/
