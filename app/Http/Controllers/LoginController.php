@@ -19,6 +19,29 @@ class LoginController extends Controller
         return view('Auth.signupLogin');
     }
 
+    public function login(Request $request){
+        
+        $this->validate($request, [
+            'email' => 'required',
+            'password' => 'required|alphaNum|min:5'
+        ]);
+
+        $user_data = array(
+            'email' => $request->get('email'),
+            'password' => $request->get('password')
+        );
+
+        if(Auth::attempt($user_data)){
+            if(Auth::user()->role == 'admin')
+                return view('Admin_Dashboard.admin_welcome');
+            else if(Auth::user()->role == 'customer')
+                return view('InternalUser_DashBoard.user_welcome');
+        }
+        else{
+            return back()->with('error', 'WRONG LOGIN DETAILS');
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -27,6 +50,7 @@ class LoginController extends Controller
     public function create()
     {
         //
+
     }
 
     /**

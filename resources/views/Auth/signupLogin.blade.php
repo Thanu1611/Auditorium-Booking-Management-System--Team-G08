@@ -11,7 +11,34 @@
 	<div class="main">  	
 		<input type="checkbox" id="chk" aria-hidden="true">
 			<div class="login">
-				<form>
+				<form action="{{ url('login') }}" method="post">
+
+				@csrf
+                <!-- Authentication Error -->
+                @if($message = Session::get('error'))
+                    <div class='error'>
+                        <strong> {{$message}} </strong>
+                    </div>
+                @endif
+
+                @if($message = Session::get('success'))
+                    <div class="success">
+                        <strong> {{$message}} </strong>
+                    </div>
+                @endif
+
+                <!-- Validation Error -->
+                @if ($errors->any())
+                <div class='error'>
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div><br/>
+                @endif
+				
+
 					<label for="chk" aria-hidden="true">Login</label>
 					<input type="email" name="email" placeholder="Email" required="">
 					<input type="password" name="password" placeholder="Password" required="">
