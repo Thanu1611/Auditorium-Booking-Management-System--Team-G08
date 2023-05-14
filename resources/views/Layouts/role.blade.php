@@ -12,6 +12,7 @@
 
   <body>
     <nav class="fixed z-30 w-full bg-white border-b-2 border-indigo-600">
+    <div class="bg-violet-950">     <!-- background color change here -->
       <div class="px-6 py-3">
         <div class="flex items-center justify-between">
           <div class="flex items-center justify-start">
@@ -22,33 +23,28 @@
               </svg>
             </button>
             <div class="flex items-center text-3xl font-bold"> 
-              <span class="text-blue-900"><b>Auditorium Booking Management System</b></span>
+              <span class="text-white"><b>Auditorium Booking Management System</b></span>
             </div>
           </div>
             <div class="relative inline-block ">
-            <span class="mx-1">Auditorium_Name</span>
+            <span class="text-white">Auditorium_Name</span>
               <!-- Dropdown toggle button -->
               <button
-                class="relative flex items-center p-2 text-sm text-gray-600 bg-white border border-transparent rounded-md focus:border-blue-500 focus:ring-opacity-40 dark:focus:ring-opacity-40 focus:ring-blue-300 dark:focus:ring-blue-400 focus:ring dark:text-white dark:bg-gray-800 focus:outline-none">
+                class="relative flex items-center p-2 text-sm text-gray-600 bg-white border border-transparent rounded-md focus:border-violet-500 focus:ring-opacity-40 dark:focus:ring-opacity-40 focus:ring-violet-300 dark:focus:ring-violet-400 focus:ring dark:text-white dark:bg-gray-800 focus:outline-none">
                 <span class="mx-1">Admin_Name</span>
-                <svg class="w-5 h-5 mx-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 15.713L18.01 9.70299L16.597 8.28799L12 12.888L7.40399 8.28799L5.98999 9.70199L12 15.713Z"
-                    fill="currentColor"></path>
-                </svg>
               </button>
               <!-- Dropdown menu -->
-              <div class="absolute right-0 z-20 w-56 mt-2 overflow-hidden bg-white rounded-md">
-              </div>
             </div>
           </div>
         </div>
       </div>
+      </div>
     </nav>
-    <div class="pt-12 lg:flex">
-      <div class="flex flex-col w-full px-4 py-8 overflow-y-auto border-b lg:border-r lg:h-screen lg:w-64">
+    <div class="pt-12 lg:flex ">
+      <div class="flex flex-col w-full px-4 py-8 overflow-y-auto border-b lg:border-r lg:h-screen lg:w-64 ">
 
 
-        <div class="flex flex-col justify-between mt-6">
+      <div class="flex flex-col justify-between mt-6 ">
           <aside>
             <ul>
               <li>
