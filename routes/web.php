@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\LoginController;
 
 
 /*
@@ -15,12 +16,22 @@ use App\Http\Controllers\EventController;
 |
 */
 
+/*
 Route::get('/', function () {
     return view('Admin_Dashboard.admin_welcome');
 });
+
+*/
+
 Route::get('/add_book', function () {
     return view('Admin_Dashboard.Add_Booking');
 })->name('add_book');
 Route::get('/view_book', function () {
     return view('Admin_Dashboard.View_Booking');
 })->name('view_book');
+
+
+Route::get('/', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'login']);
+
+
