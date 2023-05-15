@@ -14,7 +14,6 @@ use App\Http\Controllers\EventController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('Admin_Dashboard.admin_welcome');
 });
@@ -24,3 +23,4 @@ Route::get('/add_book', function () {
 Route::get('/view_book', function () {
     return view('Admin_Dashboard.View_Booking');
 })->name('view_book');
+

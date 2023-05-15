@@ -28,20 +28,23 @@
           <tbody>
             <tr class="bg-white border-b">
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">data1</td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                 data2
               </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                 data3
               </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                 data4
               </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                data5
-              </td>
-            </tr class="bg-white border-b">
-           
+              
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                <a class="inline-block px-7 py-3 bg-violet-950 text-white font-medium text-sm leading-snug uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-50 ease-in-out w-full" href="#"> View</a>
+                <br><br>
+                <a class="inline-block px-7 py-3 bg-violet-950 text-white font-medium text-sm leading-snug uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-50 ease-in-out w-full" href="#"> Approval</a>
+                <br><br>
+                <a class="inline-block px-7 py-3 bg-violet-950 text-white font-medium text-sm leading-snug uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-50 ease-in-out w-full" href="#"> DisApproval</a>
+                </td>
           </tbody>
         </table>
       </div>

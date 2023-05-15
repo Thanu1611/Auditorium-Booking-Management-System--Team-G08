@@ -12,6 +12,7 @@
       </div>
       <div class="md:w-8/12 lg:w-5/12 lg:ml-20">
         <form>
+          @csrf
           <div class="mb-6">
           <label class="block uppercase tracking-wide text-gray-700 text-xl font-bold mb-2" for="grid-first-name">
             Name of the event : 
