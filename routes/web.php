@@ -22,10 +22,12 @@ Route::get('/', function () {
 });
 
 */
-
+Route::get('/home', function () {
+    return view('Admin_Dashboard.admin_welcome');
+})->name('home');
 Route::get('/add_book', function () {
     return view('Admin_Dashboard.Add_Booking');
-})->name('add_book');
+})->name('addbook');
 Route::get('/view_book', function () {
     return view('Admin_Dashboard.View_Booking');
 })->name('view_book');

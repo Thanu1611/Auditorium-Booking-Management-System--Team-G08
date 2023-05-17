@@ -1,84 +1,137 @@
-<!DOCTYPE html>
-<html lang="en">
-
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UOJ Auditorium</title>
-    <link rel="icon" type="image/x-icon" href="https://adaderanaenglish.s3.amazonaws.com/1510059114-jaffna-university-reopen.jpg">
-    <script src="https://cdn.tailwindcss.com/"></script>
-  </head>
-
-  <body style="background-color:#dedbd2">
-    <nav class="fixed z-30 w-full bg-white border-b-2 border-indigo-600">
-    <div class="bg-violet-950">     <!-- background color change here -->
-      <div class="px-6 py-3">
-        <div class="flex items-center justify-between">
-          
-            <button class="p-2 text-gray-600 rounded cursor-pointer lg:hidden ">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-            <div class="flex items-center text-3xl font-bold"> 
-              <span class="text-white"><b>Auditorium Booking Management System</b></span>
-            </div>
-          <
-            <div class="relative inline-block ">
-            <span class="text-white">Auditorium_Name</span>
-              <!-- Dropdown toggle button -->
-              <button
-                class="relative flex items-center p-2 text-sm text-gray-600 bg-white border border-transparent rounded-md focus:border-violet-500 focus:ring-opacity-40 dark:focus:ring-opacity-40 focus:ring-violet-300 dark:focus:ring-violet-400 focus:ring dark:text-white dark:bg-gray-800 focus:outline-none">
-                <span class="mx-1">Admin_Name</span>
-              </button>
-              <!-- Dropdown menu -->
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-    </nav>
-    <div class="pt-12 lg:flex ">
-      <div class="flex flex-col w-full px-4 py-8 overflow-y-auto border-b lg:border-r lg:h-screen lg:w-64 ">
-
-
-      <div class="flex flex-col justify-between mt-6 ">
-          <aside>
-            <ul>
-              <li>
-                <a class="flex items-center px-4 py-2 mt-5 text-gray-600 rounded-md hover:bg-gray-200"href="{{route('add_book')}}">
-                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                  width="40" height="40"
-                  viewBox="0 0 24 24">
-                  <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 11 7 L 11 11 L 7 11 L 7 13 L 11 13 L 11 17 L 13 17 L 13 13 L 17 13 L 17 11 L 13 11 L 13 7 L 11 7 z"></path>
-                </svg>
-
-                  <span class="mx-4 font-medium">Add Booking</span>
-                </a>
-              </li>
-              
-              <li>
-                <a class="flex items-center px-4 py-2 mt-5 text-gray-600 rounded-md hover:bg-gray-200" href="{{route('view_book')}}">
-                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                  width="40" height="40"
-                  viewBox="0 0 80 80">
-                  <path d="M 15 9 L 15 71 L 65 71 L 65 23.585938 L 50.414063 9 Z M 17 11 L 49 11 L 49 25 L 63 25 L 63 69 L 17 69 Z M 51 12.414063 L 61.585938 23 L 51 23 Z M 22 13 C 21.449219 13 21 13.449219 21 14 C 21 14.550781 21.449219 15 22 15 C 22.550781 15 23 14.550781 23 14 C 23 13.449219 22.550781 13 22 13 Z M 22 17 C 21.449219 17 21 17.449219 21 18 C 21 18.550781 21.449219 19 22 19 C 22.550781 19 23 18.550781 23 18 C 23 17.449219 22.550781 17 22 17 Z M 22 21 C 21.449219 21 21 21.449219 21 22 C 21 22.550781 21.449219 23 22 23 C 22.550781 23 23 22.550781 23 22 C 23 21.449219 22.550781 21 22 21 Z M 22 25 C 21.449219 25 21 25.449219 21 26 C 21 26.550781 21.449219 27 22 27 C 22.550781 27 23 26.550781 23 26 C 23 25.449219 22.550781 25 22 25 Z M 22 29 C 21.449219 29 21 29.449219 21 30 C 21 30.550781 21.449219 31 22 31 C 22.550781 31 23 30.550781 23 30 C 23 29.449219 22.550781 29 22 29 Z M 22 33 C 21.449219 33 21 33.449219 21 34 C 21 34.550781 21.449219 35 22 35 C 22.550781 35 23 34.550781 23 34 C 23 33.449219 22.550781 33 22 33 Z M 28 34 L 28 36 L 55 36 L 55 34 Z M 22 37 C 21.449219 37 21 37.449219 21 38 C 21 38.550781 21.449219 39 22 39 C 22.550781 39 23 38.550781 23 38 C 23 37.449219 22.550781 37 22 37 Z M 28 40 L 28 42 L 51 42 L 51 40 Z M 22 41 C 21.449219 41 21 41.449219 21 42 C 21 42.550781 21.449219 43 22 43 C 22.550781 43 23 42.550781 23 42 C 23 41.449219 22.550781 41 22 41 Z M 22 45 C 21.449219 45 21 45.449219 21 46 C 21 46.550781 21.449219 47 22 47 C 22.550781 47 23 46.550781 23 46 C 23 45.449219 22.550781 45 22 45 Z M 28 46 L 28 48 L 55 48 L 55 46 Z M 22 49 C 21.449219 49 21 49.449219 21 50 C 21 50.550781 21.449219 51 22 51 C 22.550781 51 23 50.550781 23 50 C 23 49.449219 22.550781 49 22 49 Z M 28 52 L 28 54 L 51 54 L 51 52 Z M 22 53 C 21.449219 53 21 53.449219 21 54 C 21 54.550781 21.449219 55 22 55 C 22.550781 55 23 54.550781 23 54 C 23 53.449219 22.550781 53 22 53 Z M 22 57 C 21.449219 57 21 57.449219 21 58 C 21 58.550781 21.449219 59 22 59 C 22.550781 59 23 58.550781 23 58 C 23 57.449219 22.550781 57 22 57 Z M 22 61 C 21.449219 61 21 61.449219 21 62 C 21 62.550781 21.449219 63 22 63 C 22.550781 63 23 62.550781 23 62 C 23 61.449219 22.550781 61 22 61 Z M 22 65 C 21.449219 65 21 65.449219 21 66 C 21 66.550781 21.449219 67 22 67 C 22.550781 67 23 66.550781 23 66 C 23 65.449219 22.550781 65 22 65 Z"></path>
-                  </svg>
-
-                  <span class="mx-4 font-medium">View Booking</span>
-                </a>
-              </li>
-            </ul>
-
-          </aside>
-         
-        </div>
+<html>
+    <head>
+        <title>ABMS</title>
         
-      </div>
-      <div style="margin-left:100px; margin-right:100px;">
-      @yield('content')
-      </div>
-  </body>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <link rel="icon" type="image/x-icon" href="/images/Uoj.jpg">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    </head>
 
-</html>
+ 
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+
+<symbol id="home" viewBox="0 0 16 16">
+  <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
+</symbol>
+<symbol id="addbook" viewBox="0 0 24 24">
+  <path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 11 7 L 11 11 L 7 11 L 7 13 L 11 13 L 11 17 L 13 17 L 13 13 L 17 13 L 17 11 L 13 11 L 13 7 L 11 7 z"/>
+</symbol>
+<symbol id="viewbook" viewBox="0 0 16 16">
+<path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+</symbol>
+<symbol id="audi" viewBox="0 0 16 16">
+<path d="m8 0 6.61 3h.89a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v7a.5.5 0 0 1 .485.38l.5 2a.498.498 0 0 1-.485.62H.5a.498.498 0 0 1-.485-.62l.5-2A.501.501 0 0 1 1 13V6H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 3h.89L8 0ZM3.777 3h8.447L8 1 3.777 3ZM2 6v7h1V6H2Zm2 0v7h2.5V6H4Zm3.5 0v7h1V6h-1Zm2 0v7H12V6H9.5ZM13 6v7h1V6h-1Zm2-1V4H1v1h14Zm-.39 9H1.39l-.25 1h13.72l-.25-1Z"/>
+</symbol>
+<symbol id="logout" viewBox="0 0 16 16">
+  <<path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+  <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+</symbol>
+</svg>
+<style>
+  body{
+    margin: 15%;
+
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    font-family: 'Jost', sans-serif;
+    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+    }
+  .main{
+    height: 460px;
+    background: #eee;
+    transform: translateY(-180px);
+    padding-top: 20%; 
+  }
+  h3{
+    color:#573b8a;
+    font-weight:bold;
+  }
+  .layoutmain{
+    height: 80px;
+    background: #eee;
+    padding:10px
+  }
+  .button{
+    width: 60%;
+    height: 40px;
+    margin: 10px auto;
+    margin-top: 10px;
+    justify-content: center;
+    display: block;
+    color: #fff;
+    background: #573b8a;
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 20px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    transition: .2s ease-in;
+    cursor: pointer;
+  }
+  input{
+    width: 60%;
+    height: 40px;
+    background: #e0dede;
+    justify-content: left;
+    margin: 20px auto;
+    border-radius: 5px; 
+  }
+  #sample{
+    width: 10%;
+    height: 20px;
+    background: #e0dede;
+    justify-content: left;
+    margin: 10px auto;
+    border-radius: 2px; 
+  }
+
+</style>
+
+<body>
+<div class="layoutmain" style="display:flex; position:fixed; top:0; width:100%"> 
+    <div class="col-md-6" style="display:flex">
+        <img src="/images/audi2.png" style="width:60px; height:60px" alt="hos_logo">
+        <h4  style="padding:10px; color:#302b63; font-weight:bold; margin-top:1%">Auditorium Booking Management System</h4>
+    </div> 
+     
+    <div class="col-md-6" style="margin-left:10%; margin-right:1%">
+        <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+            <li>
+              <a href="{{ route('home')}}" class="nav-link text-black">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"/></svg>
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="{{ route('addbook')}}" class="nav-link text-black">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#addbook"/></svg>
+                Add booking
+              </a>
+            </li>
+            <li>
+              <a href="{{ route('view_book')}}" class="nav-link text-black">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#viewbook"/></svg>
+                View Booking
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link text-black">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#logout"/></svg>
+                Logout
+              </a>
+            </li>
+          </ul>
+ 
+    </div>
+    </div><br>
+
+  <div >
+    <div class="container">
+      @yield('content') 
+    </div>
+  </div>
+</body>
+
+

@@ -1,31 +1,25 @@
 @extends('Layouts.role')
 @section('content')
-<section class="h-screen">
-  <div class="container px-6 py-12 h-full">
-    <div class="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
-    <div class="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
-        <img
-          src="https://www.lib.jfn.ac.lk/wp-content/uploads/2022/09/LibFront.jpg"
-          class="w-full"
-          alt="Library image"
-        />
-      </div>
-      <div class="md:w-8/12 lg:w-5/12 lg:ml-20">
-                <br>
-                <br>
-                <br>
-                <h2><center>WELCOME TO ADMIN DASHBOARD
-                    
-                </center></h2>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                </div>
-    </div>
-  </div>
-</section>
+<div class="main" style="display:flex; flex-direction:row;width:1050px; height:600px; margin-top:80px; padding:10px">
 
+  <div class="col-md-8">
+    <div  >
+
+          <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="2000">
+            <img src="/images/lib.jpg" class="d-block w-100" alt="..." height="580">
+            </div>
+          </div>
+    </div> 
+  </div>
+  <div class="button-col-md-4 style="padding:10px; background-color:#edede9">
+      <div style="margin-left:10px; margin-top:20px">
+        <h3 style="font-weight:bold"> WELCOME </h3> <br>
+        <p style="text-align:justify"> 
+          welcome to the library admin page
+        </p>
+      </div>
+  </div>
+</div>
 
 @endsection
