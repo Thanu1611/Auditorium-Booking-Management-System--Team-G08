@@ -5,6 +5,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
         <link rel="icon" type="image/x-icon" href="/images/Uoj.jpg">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     </head>
 
  
@@ -34,7 +35,7 @@
     display: flex;
     justify-content: center;
     align-items: left;
-    font-family: 'Jost', sans-serif;
+    font-family: 'Poppins', sans-serif;
     background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
     }
   .main{
@@ -49,8 +50,9 @@
   }
   .layoutmain{
     height: 80px;
-    background: #eee;
-    padding:10px
+    background: #f1f1f1;
+    padding:10px;
+    z-index: 9999;
   }
   .button{
     width: 60%;
@@ -86,6 +88,37 @@
     margin: 10px auto;
     border-radius: 2px; 
   }
+  .colored-letter {
+                color: #FF55BB;
+            }
+            .table-wrapper {
+                position: relative;
+            }
+
+            .table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            thead {
+                position: sticky;
+                top: 80;
+                background-color:#95BDFF;
+                font-weight: bold;
+            }
+
+            tbody {
+                margin-top: 80px; /* Change this value to match the height of your thead */
+            }
+
+            .hover-row:hover {
+                font-weight: bold;
+            }
+
+            table td {
+                font-family: 'Poppins', sans-serif;
+            }
+
 
 </style>
 

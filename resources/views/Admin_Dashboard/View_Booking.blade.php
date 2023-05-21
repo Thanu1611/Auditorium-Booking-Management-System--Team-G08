@@ -1,51 +1,42 @@
 @extends('Layouts.role')
 @section('content')
-<div  style="width: 90%;height: 70%;">
-  <div >
-    <div >
-      <div class="overflow-hidden">
-        <br><br><br>
-        <table>
-          <thead >
-            <tr>
-              <th scope="col" class="text-sm font-medium text-white px-6 py-4">
-              UserID
-              </th>
-              <th scope="col" class="text-sm font-medium text-white px-6 py-4">
-              Booking_Date
-              </th>
-              <th scope="col" class="text-sm font-medium text-white px-6 py-4">
-              Booking_Time
-              </th>
-              <th scope="col" class="text-sm font-medium text-white px-6 py-4">
-              Booking_Status
-              </th>
-              <th scope="col" class="text-sm font-medium text-white px-6 py-4">
-              Booking_Details
-              </th>
-            </tr>
-          </thead >
-          <tbody>
-            <tr class="bg-white border-b">
-              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">data1</td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                data2
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                data3
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                data4
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                data5
-              </td>
-            </tr class="bg-white border-b">
-           
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
+<div >
+  <table class="table table-hover" style="background: #eee;width:500px; height:100px; margin-top:10%; padding:2px; transform: translateY(-180px)" >
+    <thead>
+        <tr>
+            <th >No</th>
+            <th >Full Name</th>
+            <th >Address</th>
+            <th >BHT</th>
+            <th >Blood Group</th>
+            <th >Age</th>
+            <th >Phone No</th>
+            <th >Action</th>
+        </tr>
+    </thead>
+        <script>
+            var tableHead = document.querySelector('thead');
+            var tableBody = document.querySelector('tbody');
+            tableBody.style.marginTop = tableHead.offsetHeight + 'px';
+        </script>
+
+    @php($i=0)
+    
+    <tr class="hover-row">
+        <td >{{++$i}}</td>
+        <td >data</td>
+        <td >data</td>
+        <td >data</td>
+        <td >data</td>
+        <td >data</td>
+        <td >data</td>
+        <td ><a role="button" class="btn btn-info" style="font-weight:bold; color:white; background-color:#1980c1; margin-bottom:5px" href="#"></a>
+            <a role="button" class="btn btn-info" style="font-weight:bold; color:white; background-color:#1980c1; margin-bottom:5px" href="#"> </a>
+        </td>
+    </tr>
+
+        
+</table>
 </div>
+
 @endsection
