@@ -27,25 +27,25 @@ Route::get('/view_book', function () {
 
 
 /*Route::get('/', function () {
-    return view('welcome');
+    return view('home.welcome');
 });
 
 Route::get('a/', function () {
-    return view('view');
+    return view('home.view');
 });
 
 Route::get('K/', function () {
-    return view('K');
+    return view('home.K');
 });
 
 Route::get('C/', function () {
-    return view('C');
+    return view('home.C');
 });
 
 Route::get('L/', function () {
-    return view('L');
+    return view('home.L');
 });
 
 Route::get('P/', function () {
-    return view('P');
+    return view('home.P');
 });*/
