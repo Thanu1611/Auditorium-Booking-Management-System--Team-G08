@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EventController;
+//use App\Http\Controllers\EventController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DashboardController;
 
 
 /*
@@ -35,5 +36,7 @@ Route::get('/view_book', function () {
 
 Route::get('/', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'login']);
-
+Route::get('/audiupdate', [DashboardController::class, 'audiupdate'])->name('audiupdate');
+Route::get('/graph', [DashboardController::class, 'graph'])->name('graph');
+Route::get('/table', [DashboardController::class, 'table'])->name('table');
 

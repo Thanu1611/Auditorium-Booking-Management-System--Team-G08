@@ -16,6 +16,6 @@ class Controller extends BaseController
     }
     public function admin_viewbook()
     {
-        return view('Admin_Dashboard.View_Booking');
+        return view('Admin_Dashboard.View_Booking');                                                  
     }
 }
