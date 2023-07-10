@@ -55,7 +55,7 @@
     z-index: 9999;
   }
   .button{
-    width: 60%;
+    width: 30%;
     height: 40px;
     margin: 10px auto;
     margin-top: 10px;
@@ -88,6 +88,29 @@
     margin: 10px auto;
     border-radius: 2px; 
   }
+  .popup {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 9999;
+                display: flex;
+            }
+
+            .popup-content {
+                background:#eee;
+                padding: 10%;
+                text-align: center;
+            }
+
+            .popup button {
+                margin: 60px;
+            }
   .colored-letter {
                 color: #FF55BB;
             }
@@ -118,6 +141,24 @@
             table td {
                 font-family: 'Poppins', sans-serif;
             }
+            .container2 {
+                        display: flex;
+                        align-items: center;
+                        font-size: 20px;
+                      }
+
+            .textarea {
+                        width: 600px;
+                        height: 140px;
+                        padding: 20px;
+                        font-family: 'Poppins', sans-serif;
+                        font-size: 16px;
+                        border: 1px solid #ccc;
+                        border-radius: 4px;
+                        resize: none;
+                        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+                        margin-left: 160px;
+                      }
 
 
 </style>
@@ -134,7 +175,7 @@
             <li>
               <a href="{{ route('home')}}" class="nav-link text-black">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"/></svg>
-                Dashborad
+                Dashboard
               </a>
             </li>
             <li>

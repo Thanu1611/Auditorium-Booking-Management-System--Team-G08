@@ -6,7 +6,7 @@
           <label for="grid-first-name">Name of the event : </label><br>
             <input type="text" id="input" placeholder="Name of the event"/> <br>
           <label for="grid-last-name">Details of the event:</label><br>
-            <input type="text" placeholder="Details"/> <br>
+            <input type="text" placeholder="Details"/> <br>                                                       
           <label for="booking_date">Booking Date : </label> <br>
             <input type="date"  id="booking_date" name="booking_date"> <br>
           <label for="booking_time">Booking Time : </label> <br>
