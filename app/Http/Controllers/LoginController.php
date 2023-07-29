@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use App\Models\User;
 use Auth;
 use Validator;
+
 
 class LoginController extends Controller
 {
@@ -34,12 +37,50 @@ class LoginController extends Controller
         if(Auth::attempt($user_data)){
             if(Auth::user()->role == 'admin')
                 return view('Admin_Dashboard.admin_welcome');
-            else if(Auth::user()->role == 'customer')
+            else if(Auth::user()->role == 'internal')
                 return view('InternalUser_DashBoard.user_welcome');
+            else if(Auth::user()->role == 'external')
+                return view('ExternalUser_DashBoard.user_welcome');
         }
         else{
-            return back()->with('error', 'WRONG LOGIN DETAILS');
+            return back()->with('error-login', 'WRONG LOGIN DETAILS');
         }
+    }
+
+    public function register(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required',
+            'password' => 'required|alphaNum|min:5'
+        ]);
+
+        $user = new User([
+            'firstname' => $request->get('firstname'),
+            'lastname' => $request->get('lastname'),
+            'email' => $request->get('email'),
+            'address' => $request->get('address'),
+            'mobile' => $request->get('mobile'),
+            'role' => $request->get('role'),
+            'faculty' => $request->get('faculty'),
+            'department' => $request->get('department'),
+            'designation' => $request->get('designation'),
+            'nic' => $request->get('nic'),
+            'organization' => $request->get('organization'),
+            'purpose' => $request->get('purpose'),
+            'external-address' => $request->get('external-address'),
+            'password' => Hash::make($request->get('password')),
+            'remember_tocken' => Str::random(10)
+        ]);
+
+        $user->save();
+
+        if($user){
+            return redirect()->back()->with('success-login', 'User Created Successfully');
+        }
+        else{
+            return redirect()->back()->with('error-signup', 'User Not Created');
+        }
+        
     }
 
     /**

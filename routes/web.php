@@ -36,6 +36,7 @@ Route::get('/view_book', function () {
 
 Route::get('/', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'login']);
+Route::post('/register',[LoginController::class, 'register']);
 Route::get('/audiupdate', [DashboardController::class, 'audiupdate'])->name('audiupdate');
 Route::get('/graph', [DashboardController::class, 'graph'])->name('graph');
 Route::get('/table', [DashboardController::class, 'table'])->name('table');
