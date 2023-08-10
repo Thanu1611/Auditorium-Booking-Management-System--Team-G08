@@ -29,7 +29,7 @@ Route::get('/add_book', function () {
 })->name('addbook');
 Route::get('/view_book', function () {
     return view('Admin_Dashboard.View_Booking');
-})->name('view_book');*/
+})->name('view_book');
 
 
 Route::get('/', function () {
