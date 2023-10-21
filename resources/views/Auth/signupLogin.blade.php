@@ -15,12 +15,12 @@
       <form action="{{ url('login') }}" method="post">
         @csrf
         <!-- Authentication Error -->
-        @if($message = Session::get('error'))
+        @if($message = Session::get('error-login'))
         <div class='error'>
           <strong> {{$message}} </strong>
         </div>
         @endif
-        @if($message = Session::get('success'))
+        @if($message = Session::get('success-login'))
         <div class="success">
           <strong> {{$message}} </strong>
         </div>
@@ -47,27 +47,63 @@
       </form>
     </div>
     <div class="signup">
-      <form>
+      <form action="{{ url('register') }}" method="post">
+        @csrf
+        <!-- Authentication Error -->
+        @if($message = Session::get('error-signup'))
+        <div class='error'>
+          <strong> {{$message}} </strong>
+        </div>
+        @endif
+        @if($message = Session::get('success-signup'))
+        <div class="success">
+          <strong> {{$message}} </strong>
+        </div>
+        @endif
+        <!-- Validation Error -->
+        @if ($errors->any())
+        <div class='error'>
+          <ul>
+            @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+        @endif
         <label for="chk" aria-hidden="true">Sign up</label>
-        <input type="text" name="name" placeholder="User Name" required="">
-        <input type="email" name="email" placeholder="Email" required="">
-        <input type="text" name="mobile" placeholder="Mobile Number" required="">
-        <input type="text" name="address" placeholder="Address" required="">
-        <input type="password" name="password" placeholder="Password" required="">
-          <select id="user-type" name="user-type"  class="custom-select" onchange="toggleUserFields(this.value)">
-            <option disabled selected>user type</option>
-            <option value="internal">Internal User</option>
-            <option value="external">External User</option>
+        <div style="display: flex">
+          <input type="text" name="firstname" placeholder="First Name" required>
+          <input type="text" name="lastname" placeholder="Last Name" required>
+        </div>
+        <div style="display: flex">
+          <input type="email" name="email" placeholder="Email" required>
+          <input type="text" name="mobile" placeholder="Mobile Number" required>
+        </div>
+        <div style="display: flex">
+          <input type="text" name="address" placeholder="Address" required>
+          <input type="password" name="password" placeholder="Password" required>
+        </div>
+          <select id="role" name="role"  class="custom-select" onchange="toggleUserFields(this.value)">
+            <option disabled selected>User Type:</option>
+            <option value="internal">University Staff</option>
+            <option value="external">Guest</option>
           </select>
         <div id="internal-fields" style="display: none;">
-          <input type="text" name="faculty" placeholder="Faculty">
-          <input type="text" name="department" placeholder="Department">
-          <input type="text" name="designation" placeholder="Designation">
+          <div style="display: flex">
+            <input type="text" name="faculty" placeholder="Faculty">
+            <input type="text" name="department" placeholder="Department">
+          </div>
+            <input type="text" name="designation" placeholder="Designation">
         </div>
         <div id="external-fields" style="display: none;">
-          <input type="text" name="organization" placeholder="Organization">
-          <input type="text" name="external-address" placeholder="Address">
-          <input type="text" name="purpose" placeholder="Purpose">
+          <div style="display: flex">
+            <input type="text" name="nic" placeholder="NIC">
+            <input type="text" name="organization" placeholder="Organization">
+          </div>
+          <div style="display: flex">
+            <input type="text" name="external-address" placeholder="Organization Address">
+            <input type="text" name="purpose" placeholder="Purpose">
+          </div>
         </div>
         <button>Sign up</button>
       </form>
