@@ -6,6 +6,7 @@
         <link rel="icon" type="image/x-icon" href="/images/Uoj.jpg">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link href="{{ asset('css/Auth/layout.css') }}" rel="stylesheet">
     </head>
 
  
@@ -28,140 +29,6 @@
   <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
 </symbol>
 </svg>
-<style>
-  body{
-    margin: 15%;
-
-    display: flex;
-    justify-content: center;
-    align-items: left;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
-    }
-  .main{
-    height: 460px;
-    background: #eee;
-    transform: translateY(-180px);
-    padding-top: 20%; 
-  }
-  h3{
-    color:#573b8a;
-    font-weight:bold;
-  }
-  .layoutmain{
-    height: 80px;
-    background: #f1f1f1;
-    padding:10px;
-    z-index: 9999;
-  }
-  .button{
-    width: 30%;
-    height: 40px;
-    margin: 10px auto;
-    margin-top: 10px;
-    justify-content: center;
-    display: block;
-    color: #fff;
-    background: #573b8a;
-    font-size: 1em;
-    font-weight: bold;
-    margin-top: 20px;
-    outline: none;
-    border: none;
-    border-radius: 5px;
-    transition: .2s ease-in;
-    cursor: pointer;
-  }
-  input{
-    width: 60%;
-    height: 40px;
-    background: #e0dede;
-    justify-content: left;
-    margin: 20px auto;
-    border-radius: 5px; 
-  }
-  #sample{
-    width: 10%;
-    height: 20px;
-    background: #e0dede;
-    justify-content: left;
-    margin: 10px auto;
-    border-radius: 2px; 
-  }
-  .popup {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.5);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                z-index: 9999;
-                display: flex;
-            }
-
-            .popup-content {
-                background:#eee;
-                padding: 10%;
-                text-align: center;
-            }
-
-            .popup button {
-                margin: 60px;
-            }
-  .colored-letter {
-                color: #FF55BB;
-            }
-            .table-wrapper {
-                position: relative;
-            }
-
-            .table {
-                width: 100%;
-                border-collapse: collapse;
-            }
-
-            thead {
-                position: sticky;
-                top: 80;
-                background-color:#95BDFF;
-                font-weight: bold;
-            }
-
-            tbody {
-                margin-top: 80px; /* Change this value to match the height of your thead */
-            }
-
-            .hover-row:hover {
-                font-weight: bold;
-            }
-
-            table td {
-                font-family: 'Poppins', sans-serif;
-            }
-            .container2 {
-                        display: flex;
-                        align-items: center;
-                        font-size: 20px;
-                      }
-
-            .textarea {
-                        width: 600px;
-                        height: 140px;
-                        padding: 20px;
-                        font-family: 'Poppins', sans-serif;
-                        font-size: 16px;
-                        border: 1px solid #ccc;
-                        border-radius: 4px;
-                        resize: none;
-                        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-                        margin-left: 160px;
-                      }
-
-
-</style>
 
 <body>
 <div class="layoutmain" style="display:flex; position:fixed; top:0; width:100%"> 

@@ -18,4 +18,13 @@ class DashboardController extends Controller
     {
         return view("table");
     }
+    public function tableadd()
+    {
+        return view("table.addfacility");
+    }
+    public function upevent()
+    {
+        return view("upcomingevent");
+    }
+
 }
