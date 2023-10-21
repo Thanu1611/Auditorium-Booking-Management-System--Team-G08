@@ -1,25 +1,56 @@
 @extends('Layouts.role')
 @section('content')
-<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-  <symbol id="calendar3" viewBox="0 0 32 32">
-    <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
-    <path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-  </symbol>
-</svg>
-<div class="main" style="display:flex; flex-direction:row;width:1050px; height:600px; margin-top:80px; padding:10px">
-        <h1 >Dashboard</h1>
-        <div>
+<style type="text/css">
+    .chartfont{
+        font-size:35px;
+        font-weight:900;
+    }
+    .div2 {
+        background-color: white;
+        border-radius:15px;
+        padding:20px;
+        justify-content: center;
+    }
 
-          <button type="button" class="btn  btn-outline-secondary dropdown-toggle align-items-center">
-            <svg><use xlink:href="#calendar3"/></svg>
-            This week
-          </button>
+    .div3 {
+        background-color: white;
+        border-radius:15px;
+        padding:20px;
+        justify-content: center;
+    }
+
+</style>
     
-      </div>
-
-      <a type="button" href="{{route('home')}}" class="button" style="font-weight:bold; margin-right:88%">    << Previous </a>
-
+<body >
+   <div class="main" style="width:1000px; height:100%; margin-top:90px; padding:20px; margin-left:auto; margin-right:auto;">
+    <div class="container">
+        <div class="chartfont div2" style="box-shadow: 0 0 20px 2px #295939">
+            <h3 style="text-align: center"> Total Booking for year </h3>
+            
+            <div class="chart" role="group" aria-label="Basic radio toggle button group">
+                <a class="btn btn-outline-success" id="btnradio1" onclick="redirectToMonthChart()" role="button">Month</a>
+                <a class="btn btn-outline-success" id="btnradio2" onclick="redirectToYearChart()" role="button">Year</a>
+            </div>
+            <canvas id="myChart" height="100%"></canvas>
+        </div>
+        <br><br>
+        <div class="chartfont div3" style="box-shadow: 0 0 20px 2px #241468">
+            <h3 style="text-align: center"> Auditorium_Status </h3><br>
+            <canvas id="myChart2" height="50%"></canvas>
+        </div>
+        <br><br><br>
+        <div class="chartfont div3" style="box-shadow: 0 0 20px 2px #1C658C">
+            <h3 style="text-align: center"> Auditorium Entry Monthly </h3>
+            <canvas id="myChart3" height="100%"></canvas>
+        </div>
+    </div>
+    <br>
+    <div class="col-12" style="padding:5px">
+    <a role="button" href="{{route('home')}}"class="btn btn-primary" style="font-weight:bold; color:white; background-color:#573b8a;width: 15%;height: 40px;"> << Previous </a>
+    </div>
+</div>
+</body>
   
 
-</div>
+
 @endsection

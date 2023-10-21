@@ -21,7 +21,10 @@
 
           <div class="col-12" style="padding:5px">
         <button type="submit" class="button" style="font-weight:bold; margin-left:88%"> Update </button>
-        <a type="button" href="{{route('home')}}" class="button" style="font-weight:bold; margin-right:88%">    << Previous </a>
+        <br>
+        <br>
+        <br>
+        <a role="button" href="{{route('home')}}"class="btn btn-primary" style="font-weight:bold; color:white; background-color:#573b8a;width: 15%;height: 40px;"> << Previous </a>
     </div>
 
 

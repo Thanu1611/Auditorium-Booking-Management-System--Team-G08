@@ -38,5 +38,6 @@ Route::get('/', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'login']);
 Route::get('/audiupdate', [DashboardController::class, 'audiupdate'])->name('audiupdate');
 Route::get('/graph', [DashboardController::class, 'graph'])->name('graph');
+Route::get('/upevent', [DashboardController::class, 'upevent'])->name('upevent');
 Route::get('/table', [DashboardController::class, 'table'])->name('table');
-
+Route::get('/tableadd', [DashboardController::class, 'tableadd'])->name('tableadd');
