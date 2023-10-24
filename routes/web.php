@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EventController;
+//use App\Http\Controllers\EventController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DashboardController;
 
 
 /*
@@ -32,6 +33,7 @@ Route::get('/view_book', function () {
 })->name('view_book');
 
 
+<<<<<<< HEAD
 Route::get('/', function () {
     return view('home.welcome');
 });
@@ -55,3 +57,13 @@ Route::get('L/', function () {
 Route::get('P/', function () {
     return view('home.P');
 });
+=======
+Route::get('/', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'login']);
+Route::post('/register',[LoginController::class, 'register']);
+Route::get('/audiupdate', [DashboardController::class, 'audiupdate'])->name('audiupdate');
+Route::get('/graph', [DashboardController::class, 'graph'])->name('graph');
+Route::get('/upevent', [DashboardController::class, 'upevent'])->name('upevent');
+Route::get('/table', [DashboardController::class, 'table'])->name('table');
+Route::get('/tableadd', [DashboardController::class, 'tableadd'])->name('tableadd');
+>>>>>>> main

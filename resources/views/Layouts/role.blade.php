@@ -6,6 +6,7 @@
         <link rel="icon" type="image/x-icon" href="/images/Uoj.jpg">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link href="{{ asset('css/Auth/layout.css') }}" rel="stylesheet">
     </head>
 
  
@@ -28,99 +29,6 @@
   <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
 </symbol>
 </svg>
-<style>
-  body{
-    margin: 15%;
-
-    display: flex;
-    justify-content: center;
-    align-items: left;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
-    }
-  .main{
-    height: 460px;
-    background: #eee;
-    transform: translateY(-180px);
-    padding-top: 20%; 
-  }
-  h3{
-    color:#573b8a;
-    font-weight:bold;
-  }
-  .layoutmain{
-    height: 80px;
-    background: #f1f1f1;
-    padding:10px;
-    z-index: 9999;
-  }
-  .button{
-    width: 60%;
-    height: 40px;
-    margin: 10px auto;
-    margin-top: 10px;
-    justify-content: center;
-    display: block;
-    color: #fff;
-    background: #573b8a;
-    font-size: 1em;
-    font-weight: bold;
-    margin-top: 20px;
-    outline: none;
-    border: none;
-    border-radius: 5px;
-    transition: .2s ease-in;
-    cursor: pointer;
-  }
-  input{
-    width: 60%;
-    height: 40px;
-    background: #e0dede;
-    justify-content: left;
-    margin: 20px auto;
-    border-radius: 5px; 
-  }
-  #sample{
-    width: 10%;
-    height: 20px;
-    background: #e0dede;
-    justify-content: left;
-    margin: 10px auto;
-    border-radius: 2px; 
-  }
-  .colored-letter {
-                color: #FF55BB;
-            }
-            .table-wrapper {
-                position: relative;
-            }
-
-            .table {
-                width: 100%;
-                border-collapse: collapse;
-            }
-
-            thead {
-                position: sticky;
-                top: 80;
-                background-color:#95BDFF;
-                font-weight: bold;
-            }
-
-            tbody {
-                margin-top: 80px; /* Change this value to match the height of your thead */
-            }
-
-            .hover-row:hover {
-                font-weight: bold;
-            }
-
-            table td {
-                font-family: 'Poppins', sans-serif;
-            }
-
-
-</style>
 
 <body>
 <div class="layoutmain" style="display:flex; position:fixed; top:0; width:100%"> 
@@ -134,7 +42,7 @@
             <li>
               <a href="{{ route('home')}}" class="nav-link text-black">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"/></svg>
-                Dashborad
+                Dashboard
               </a>
             </li>
             <li>
