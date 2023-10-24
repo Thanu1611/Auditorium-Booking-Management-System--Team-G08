@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 //use App\Http\Controllers\EventController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SuperController;
 
 
 /*
@@ -67,3 +68,6 @@ Route::get('/upevent', [DashboardController::class, 'upevent'])->name('upevent')
 Route::get('/table', [DashboardController::class, 'table'])->name('table');
 Route::get('/tableadd', [DashboardController::class, 'tableadd'])->name('tableadd');
 
+
+Route::get('/superfront', [SuperController::class, 'superfront'])->name('front');
+Route::get('/addaudi', [SuperController::class, 'addaudi'])->name('newone');
