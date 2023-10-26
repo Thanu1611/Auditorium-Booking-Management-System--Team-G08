@@ -33,6 +33,13 @@ Route::get('/view_book', function () {
     return view('Admin_Dashboard.View_Booking');
 })->name('view_book');
 
+Route::get('/user_view_book', function () {
+    return view('InternalUser_DashBoard.View_Booking');
+})->name('user_view_book');
+Route::get('/user_add_book', function () {
+    return view('InternalUser_DashBoard.Add_Booking');
+})->name('user_add_book');
+
 
 Route::get('/', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'login']);
