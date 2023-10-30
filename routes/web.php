@@ -36,7 +36,7 @@ Route::get('/w', function () {
 });
 
 Route::get('/', function () {
-    return view('home.welcome');
+    return view('home.asd');
 });
 
 Route::get('a/', function () {
