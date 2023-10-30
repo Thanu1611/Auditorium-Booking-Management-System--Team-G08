@@ -4,9 +4,9 @@
         <div ><h3>Add Booking</h3></div>
         <hr>
           <label for="grid-first-name">Name of the event : </label><br>
-            <input type="text" id="input" placeholder="Name of the event"/> <br>
+            <input type="text" id="input" name="event" placeholder="Name of the event"/> <br>
           <label for="grid-last-name">Details of the event:</label><br>
-            <input type="text" placeholder="Details"/> <br>                                                       
+            <input type="text" name="Detail_event" placeholder="Details of the event"/> <br>                                                       
           <label for="booking_date">Booking Date : </label> <br>
             <input type="date"  id="booking_date" name="booking_date"> <br>
             <label for="booking_date">Do you need any extra date for hall decoration?</label><br>
@@ -50,7 +50,7 @@
       <input type="radio" id="sample" name="AC">NON AC
     
       <div class="p-2 bg-secondary  bg-opacity-10 border  border-start-0 rounded-end " style="font-weight:bold;background-color:#f8f9fa"> Specific Needs</div> <br>
-      <input type="text" placeholder="needs"/> <br> 
+      <input type="text" name="Needs" placeholder="needs"/> <br> 
     <button type="submit" class="button" >Booking</button>
 </div>
 </form>

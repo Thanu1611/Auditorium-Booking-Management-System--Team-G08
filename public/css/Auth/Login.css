@@ -68,7 +68,7 @@ body{
     background: #6d44b8;
   }
   .signup{
-    height: 660px;
+    height: 710px;
     background: #eee;
     border-radius: 60% / 10%;
     transform: translateY(-200px);
@@ -80,7 +80,7 @@ body{
   }
 
   #chk:checked ~ .signup{
-    transform: translateY(-800px);  /*Signup height*/
+    transform: translateY(-710px);  /*Signup height*/
   }
   #chk:checked ~ .signup label{
     transform: scale(1);	
@@ -134,6 +134,13 @@ body{
   .custom-select option:hover {
     background-color: #ccc;
   }
+  #togglePassword {
+    position: relative;
+    top: 19px; /* Adjust the value as needed */
+    cursor: pointer;
+    height: 43px;
+    width: 47px;
+}
 
 
   

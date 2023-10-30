@@ -1,5 +1,5 @@
 body{
-    margin: 15%;
+    margin: 13%;
 
     display: flex;
     justify-content: center;
@@ -11,8 +11,8 @@ body{
     height: 100%;
     width: 100%;
     background: #eee;
-    transform: translateY(-180px);
-    padding-top: 20%; 
+    transform: translateY(-80px);
+    padding: 10% ; 
     border-radius: 10px;
     box-shadow: 5px 20px 50px #000;
   }
@@ -22,6 +22,7 @@ body{
   }
   .layoutmain{
     height: 80px;
+    width:1050px;
     background: #f1f1f1;
     padding:10px;
     z-index: 9999;
@@ -53,6 +54,16 @@ body{
     margin: 20px auto;
     border-radius: 5px; 
   }
+  #togglePassword {
+    position: relative;
+    top: 19px; /* Adjust the value as needed */
+    right:120px;
+    cursor: pointer;
+    height: 43px;
+    width: 47px;
+}
+
+
   #sample{
     width: 10%;
     height: 20px;
@@ -67,6 +78,7 @@ body{
             }
             .table-wrapper {
                 position: relative;
+                
             }
 
             .table {
@@ -80,10 +92,12 @@ body{
                 top: 80;
                 background-color:#c6baba;;
                 font-weight: bold;
+                text-align: center;
             }
 
             tbody {
                 margin-top: 80px; /* Change this value to match the height of your thead */
+               
             }
 
             .hover-row:hover {
@@ -94,6 +108,7 @@ body{
             table td {
                 font-family: 'Poppins', sans-serif;
                 color: white;
+                text-align: center;
             }
             .container2 {
                         display: flex;

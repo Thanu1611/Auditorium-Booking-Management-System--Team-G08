@@ -26,7 +26,7 @@ class LoginController extends Controller
         
         $this->validate($request, [
             'email' => 'required',
-            'password' => 'required|alphaNum|min:5'
+            'password' => 'required|regex:/^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d@$!%*#?&]{5,}$/'
         ]);
 
         $user_data = array(
@@ -37,6 +37,8 @@ class LoginController extends Controller
         if(Auth::attempt($user_data)){
             if(Auth::user()->role == 'admin')
                 return view('Admin_Dashboard.admin_welcome');
+            else if(Auth::user()->role == 'superadmin')
+                return view('Super_Admin.dashboard');
             else if(Auth::user()->role == 'internal')
                 return view('InternalUser_DashBoard.user_welcome');
             else if(Auth::user()->role == 'external')
@@ -81,6 +83,11 @@ class LoginController extends Controller
             return redirect()->back()->with('error-signup', 'User Not Created');
         }
         
+    }
+    function logout()
+    {
+        auth::logout();
+        return view('Auth.signupLogin');
     }
 
     /**

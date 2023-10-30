@@ -27,11 +27,13 @@ class DatabaseSeeder extends Seeder
 
         User::create([
             'firstname' => 'Tharsi',
+            'lastname'=>'karuna',
             'email' => 'tharsi@gmail.com',
             'password' => Hash::make('test123'),
             'remember_token' => str::random(10),
-            'role' => 'admin',
-            'mobile' => 767500411
+            'role' => 'superadmin',
+            'mobile' => 0767500411,
+            'image'=>'Profile/local.png'
         ]);
     }
 }
