@@ -9,7 +9,7 @@
             <th >Event_No</th>
             <th >Date</th>
             <th >Time</th>
-            <th  colspan=3>Status</th>
+            <th  colspan>Status</th>
         </tr>
     </thead>
         <script>

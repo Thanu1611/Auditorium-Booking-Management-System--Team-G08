@@ -4,9 +4,17 @@
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
         <link rel="icon" type="image/x-icon" href="/images/Uoj.jpg">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />  
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         <link href="{{ asset('css/Auth/layout.css') }}" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+        <script src="{{ asset('bootstrap/js/bootstrap.bunddle.min.js') }}" ></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
 
  
@@ -38,7 +46,63 @@
     </div> 
      
     <div class="col-md-6" style="margin-left:10%; margin-right:1%">
+    @if(Auth::user()->role == 'admin')
         <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+            <li>
+              <a href="{{ route('home')}}" class="nav-link text-black">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"/></svg>
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a href="{{ route('addbook')}}" class="nav-link text-black">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#addbook"/></svg>
+                Add booking
+              </a>
+            </li>
+            <li>
+              <a href="{{ route('view_book')}}" class="nav-link text-black">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#viewbook"/></svg>
+                View Booking
+              </a>
+            </li>
+            <li>
+              <a href="{{route('logout')}}" class="nav-link text-black">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#logout"/></svg>
+                Logout
+              </a>
+            </li>
+          </ul>
+    @elseif(Auth::user()->role == 'superadmin') 
+    <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+            <li>
+              <a href="{{ route('superdash')}}" class="nav-link text-black">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"/></svg>
+                Dashboard
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ route('superadmin')}}" class="nav-link text-black">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#viewbook"/></svg>
+                Add Admin
+              </a>
+            </li>
+            <li>
+              <a href="{{ route('superadmina')}}" class="nav-link text-black">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#addbook"/></svg>
+                Add Auditorium
+              </a>
+            </li>
+            <li>
+              <a href="{{route('logout')}}" class="nav-link text-black">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#logout"/></svg>
+                Logout
+              </a>
+            </li>
+          </ul>
+          @elseif(Auth::user()->role == 'internal') 
+    <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
             <li>
               <a href="{{ route('home')}}" class="nav-link text-black">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"/></svg>
@@ -64,15 +128,19 @@
               </a>
             </li>
           </ul>
- 
+          @endif
     </div>
     </div><br>
 
   <div >
     <div class="container">
       @yield('content') 
+      <script src="{{ asset('css/Auth/verification.js') }}" type="text/javascript"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     </div>
   </div>
+
 </body>
 
 

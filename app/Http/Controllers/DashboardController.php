@@ -26,5 +26,9 @@ class DashboardController extends Controller
     {
         return view("upcomingevent");
     }
+    public function superadmindash()
+    {
+        return view("Super_Admin.dashboard");
+    }
 
 }
