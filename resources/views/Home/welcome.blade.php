@@ -2,11 +2,15 @@
 
 <head>
   <title>ABMS</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-  <link rel="icon" type="image/x-icon" href="/images/Uoj.jpg">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
+  <link rel="icon" type="image/x-icon" href="/images/Uoj.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
 
@@ -74,16 +78,54 @@
       @yield('content')
     </div>
   </div>
-  <div class="container">
+  <br>
+  <br>
+  <br>
+
+  <!-- Carousel -->
+  <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+    <!-- Indicators/dots -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+    </div>
+
+    <!-- The slideshow/carousel -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://www.jfn.ac.lk/wp-content/uploads/2017/02/Prof.s.Maheswaran-Memorial-Lecture-2017_34.jpg" alt="Los Angeles" class="d-block w-100">
+      </div>
+      <div class="carousel-item">
+        <img src="https://www.jfn.ac.lk/wp-content/uploads/2017/02/Prof.s.Maheswaran-Memorial-Lecture-2017_34.jpg" alt="Chicago" class="d-block w-100">
+      </div>
+      <div class="carousel-item">
+        <img src="https://www.jfn.ac.lk/wp-content/uploads/2017/02/Prof.s.Maheswaran-Memorial-Lecture-2017_34.jpg" alt="New York" class="d-block w-100">
+      </div>
+    </div>
+
+    <!-- Left and right controls/icons -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+  <div  class="text">
+    <h1>THis is dummy text</h1>
+  </div>
+  <!--<div class="container">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
+      <!-- Indicators 
       <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
       </ol>
 
-      <!-- Wrapper for slides -->
+      <!-- Wrapper for slides 
       <div class="carousel-inner">
         <div class="item active">
           <img src="https://www.jfn.ac.lk/wp-content/uploads/2017/02/Prof.s.Maheswaran-Memorial-Lecture-2017_34.jpg" alt="Los Angeles" width="800" height="1080" class="center">
@@ -98,7 +140,7 @@
         </div>
       </div>
 
-      <!-- Left and right controls -->
+      <!-- Left and right controls 
       <a class="left carousel-control" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left"></span>
         <span class="sr-only">Previous</span>
@@ -109,24 +151,25 @@
       </a>
 
     </div>
+  </div> -->
 
-    <script>
-      /* When the user clicks on the button, 
+  <script>
+    /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
-      function myFunction() {
-        document.getElementById("myAuditoriums").classList.toggle("show");
-      }
+    function myFunction() {
+      document.getElementById("myAuditoriums").classList.toggle("show");
+    }
 
-      // Close the dropdown if the user clicks outside of it
-      window.onclick = function(e) {
-        if (!e.target.matches('.dropbtn')) {
-          var myAuditoriums = document.getElementById("myAuditoriums");
-          if (myAuditoriums.classList.contains('show')) {
-            myAuditoriums.classList.remove('show');
-          }
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(e) {
+      if (!e.target.matches('.dropbtn')) {
+        var myAuditoriums = document.getElementById("myAuditoriums");
+        if (myAuditoriums.classList.contains('show')) {
+          myAuditoriums.classList.remove('show');
         }
       }
-    </script>
+    }
+  </script>
 
 </body>
 
