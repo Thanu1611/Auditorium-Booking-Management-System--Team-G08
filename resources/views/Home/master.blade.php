@@ -25,7 +25,7 @@
 
 .button1 {
   background-color: #f350a4; 
-  color: black; 
+  color:white; 
   border: 1px solid #f350a4;
 }
 
