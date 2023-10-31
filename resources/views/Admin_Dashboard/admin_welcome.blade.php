@@ -1,4 +1,4 @@
-@extends('Layouts.role')
+@extends('Layouts.role',['auditoriumId' => $auditoriumId])
 @section('content')
 <div class="main" style="display:flex; flex-direction:row;width:1350px; height:900px; margin-top:80px; padding:10px">
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">

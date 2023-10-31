@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use App\Models\User;
+use App\Models\Auditorium;
 use Auth;
 use Validator;
 
@@ -34,21 +35,39 @@ class LoginController extends Controller
             'password' => $request->get('password')
         );
 
-        if(Auth::attempt($user_data)){
-            if(Auth::user()->role == 'admin')
-                return view('Admin_Dashboard.admin_welcome');
-            else if(Auth::user()->role == 'superadmin')
-                return view('Super_Admin.dashboard');
-            else if(Auth::user()->role == 'internal')
+
+        if (Auth::attempt($user_data)) {
+            if (Auth::user()->role == 'superadmin') {
+                return redirect()->route('superdash'); // Superadmins go to the superadmin dashboard
+            } elseif (Auth::user()->role == 'admin') {
+                // Check if the admin is associated with an auditorium
+                $adminId = Auth::user()->id;
+                $auditorium = Auditorium::where('admin', $adminId)->first();
+    
+                if ($auditorium) {
+                    $auditoriumId = $auditorium->id;
+                    return redirect()->route('home', ['auditoriumId' => $auditoriumId]);
+                } else {
+                    return back()->with('error-login', 'No associated auditorium found');
+                }
+            } elseif (Auth::user()->role == 'internal') {
                 return view('InternalUser_DashBoard.user_welcome');
-            else if(Auth::user()->role == 'external')
+            } elseif (Auth::user()->role == 'external') {
                 return view('ExternalUser_DashBoard.user_welcome');
-        }
-        else{
+            }
+        } else {
             return back()->with('error-login', 'WRONG LOGIN DETAILS');
         }
     }
-
+    public function home($auditoriumId)
+    {
+        $auditorium = Auditorium::find($auditoriumId);
+        return view('Admin_Dashboard.admin_welcome',compact('auditorium'));
+    }
+    public function superadmindash()
+    {
+        return view("Super_Admin.dashboard");
+    }
     public function register(Request $request)
     {
         $this->validate($request, [

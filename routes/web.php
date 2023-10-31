@@ -23,9 +23,6 @@ Route::get('/', function () {
 });
 
 */
-Route::get('/home', function () {
-    return view('Admin_Dashboard.admin_welcome');
-})->name('home');
 Route::get('/add_book', function () {
     return view('Admin_Dashboard.Add_Booking');
 })->name('addbook');
@@ -44,13 +41,14 @@ Route::get('/user_add_book', function () {
 Route::get('/', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/register',[LoginController::class, 'register']);
+Route::get('/home/{auditoriumId}', [LoginController::class, 'home'])->name('home');
+Route::get('/superdash', [LoginController::class, 'superadmindash'])->name('superdash');
 Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 Route::get('/audiupdate', [DashboardController::class, 'audiupdate'])->name('audiupdate');
 Route::get('/graph', [DashboardController::class, 'graph'])->name('graph');
 Route::get('/upevent', [DashboardController::class, 'upevent'])->name('upevent');
 Route::get('/table', [DashboardController::class, 'table'])->name('table');
 Route::get('/tableadd', [DashboardController::class, 'tableadd'])->name('tableadd');
-Route::get('/superdash', [DashboardController::class, 'superadmindash'])->name('superdash');
 Route::get('/superadmin', function () {
     return view('Super_admin.add_admin');
 });

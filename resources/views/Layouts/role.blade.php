@@ -47,9 +47,10 @@
      
     <div class="col-md-6" style="margin-left:10%; margin-right:1%">
     @if(Auth::user()->role == 'admin')
+    @if(isset($auditoriumId))
         <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
             <li>
-              <a href="{{ route('home')}}" class="nav-link text-black">
+              <a href="{{ route('home', ['auditoriumId' => $auditoriumId]) }}" class="nav-link text-black">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"/></svg>
                 Dashboard
               </a>
@@ -73,6 +74,9 @@
               </a>
             </li>
           </ul>
+            @else
+            <p>No associated auditorium found.</p>
+        @endif
     @elseif(Auth::user()->role == 'superadmin') 
     <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
             <li>
@@ -104,7 +108,7 @@
           @elseif(Auth::user()->role == 'internal') 
     <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
             <li>
-              <a href="{{ route('home')}}" class="nav-link text-black">
+              <a href="#" class="nav-link text-black">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"/></svg>
                 Dashboard
               </a>
