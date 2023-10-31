@@ -1,4 +1,4 @@
-@extends('Layouts.role')
+@extends('Layouts.role',['auditorium' => $auditorium])
 @section('content')
 
 <div style=" width:1050px; height:600px; margin-top:0%;margin-right:0%; padding:0%">
@@ -60,6 +60,6 @@
        
 </table>
 <br>
-<a role="button" href="{{route('home')}}"class="btn btn-light" style="font-weight:bold; color:white; background-color:#f350a4;width: 15%;height: 40px;"> << Previous </a>
+<a role="button" href="{{route('home',['auditoriumId' =>$auditorium->id])}}"class="btn btn-light" style="font-weight:bold; color:white; background-color:#f350a4;width: 15%;height: 40px;"> << Previous </a>
 </div>
 @endsection

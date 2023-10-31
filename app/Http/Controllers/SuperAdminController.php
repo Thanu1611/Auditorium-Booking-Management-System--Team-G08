@@ -7,6 +7,7 @@ use App\Models\Auditorium;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Auth;
 use Validator;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Log;
@@ -126,8 +127,10 @@ class SuperAdminController extends Controller
         $auditorium->description = $request->input('description');
         $auditorium->admin = $request->input('admin');
         $auditorium->save();
-    
-        return redirect()->route('superadmina')->with('success', 'Auditorium updated successfully.');
+        if (Auth::user()->role == 'superadmin') 
+             return redirect()->route('superadmina')->with('success', 'Auditorium updated successfully.');
+        else
+            return redirect()->route('home',['auditoriumId' => $auditorium->id])->with('success', 'Auditorium updated successfully.');
     }
     public function superadmin()  //Request $request
     {

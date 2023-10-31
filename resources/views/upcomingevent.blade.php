@@ -1,4 +1,4 @@
-@extends('Layouts.role')
+@extends('Layouts.role',['auditorium' => $auditorium])
 @section('content')
 
 <div class="main" style="display: flex; flex-direction: row; flex-wrap: wrap; width: 1004px; margin-top: 80px; padding: 10px;">
@@ -30,7 +30,7 @@
       </div>
     </div>
     <div class="col-12" style="padding:5px">
-  <a role="button" href="{{route('home')}}"class="btn btn-primary" style="font-weight:bold; color:white; background-color:#573b8a;width: 15%;height: 40px;"> << Previous </a>
+  <a role="button" href="{{route('home',['auditoriumId' =>$auditorium->id])}}"class="btn btn-primary" style="font-weight:bold; color:white; background-color:#573b8a;width: 15%;height: 40px;"> << Previous </a>
   </div>
 </div>
 

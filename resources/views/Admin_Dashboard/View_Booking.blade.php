@@ -1,4 +1,4 @@
-@extends('Layouts.role')
+@extends('Layouts.role',['auditorium' => $auditorium])
 @section('content')
 <div style=" width:1050px; height:600px; padding:0%">
 

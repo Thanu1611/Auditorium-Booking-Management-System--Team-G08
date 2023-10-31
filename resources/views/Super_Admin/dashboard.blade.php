@@ -46,7 +46,6 @@
     </div>
     <br>
     <div class="col-12" style="padding:5px">
-    <a role="button" href="{{route('home')}}"class="btn btn-primary" style="font-weight:bold; color:white; background-color:#573b8a;width: 15%;height: 40px;"> << Previous </a>
     </div>
 </div>
 </body>

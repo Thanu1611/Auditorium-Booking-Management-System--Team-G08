@@ -64,6 +64,16 @@ class LoginController extends Controller
         $auditorium = Auditorium::find($auditoriumId);
         return view('Admin_Dashboard.admin_welcome',compact('auditorium'));
     }
+    public function addbook($auditoriumId)
+    {
+        $auditorium = Auditorium::find($auditoriumId);
+        return view('Admin_Dashboard.Add_Booking',compact('auditorium'));
+    }
+    public function viewbook($auditoriumId)
+    {
+        $auditorium = Auditorium::find($auditoriumId);
+        return view('Admin_Dashboard.View_Booking',compact('auditorium'));
+    }
     public function superadmindash()
     {
         return view("Super_Admin.dashboard");

@@ -23,12 +23,9 @@ Route::get('/', function () {
 });
 
 */
-Route::get('/add_book', function () {
-    return view('Admin_Dashboard.Add_Booking');
-})->name('addbook');
-Route::get('/view_book', function () {
-    return view('Admin_Dashboard.View_Booking');
-})->name('view_book');
+
+Route::get('/add_book/{auditoriumId}', [LoginController::class, 'addbook'])->name('addbook');
+Route::get('/view_book/{auditoriumId}', [LoginController::class, 'viewbook'])->name('viewbook');
 
 Route::get('/user_view_book', function () {
     return view('InternalUser_DashBoard.View_Booking');
@@ -44,10 +41,10 @@ Route::post('/register',[LoginController::class, 'register']);
 Route::get('/home/{auditoriumId}', [LoginController::class, 'home'])->name('home');
 Route::get('/superdash', [LoginController::class, 'superadmindash'])->name('superdash');
 Route::get('/logout',[LoginController::class,'logout'])->name('logout');
-Route::get('/audiupdate', [DashboardController::class, 'audiupdate'])->name('audiupdate');
-Route::get('/graph', [DashboardController::class, 'graph'])->name('graph');
-Route::get('/upevent', [DashboardController::class, 'upevent'])->name('upevent');
-Route::get('/table', [DashboardController::class, 'table'])->name('table');
+Route::get('/audiupdate/{auditoriumId}', [DashboardController::class, 'audiupdate'])->name('audiupdate');
+Route::get('/graph/{auditoriumId}', [DashboardController::class, 'graph'])->name('graph');
+Route::get('/upevent/{auditoriumId}', [DashboardController::class, 'upevent'])->name('upevent');
+Route::get('/table/{auditoriumId}', [DashboardController::class, 'table'])->name('table');
 Route::get('/tableadd', [DashboardController::class, 'tableadd'])->name('tableadd');
 Route::get('/superadmin', function () {
     return view('Super_admin.add_admin');

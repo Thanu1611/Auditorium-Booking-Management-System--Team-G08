@@ -1,4 +1,4 @@
-@extends('Layouts.role',['auditoriumId' => $auditoriumId])
+@extends('Layouts.role',['auditorium' => $auditorium])
 @section('content')
 <div class="main" style="display:flex; flex-direction:row;width:1350px; height:900px; margin-top:80px; padding:10px">
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -24,30 +24,26 @@
 
 </svg>
 <div class="container px-4 py-5">
-    <h3>Library Mini Auditorium</h3>
+    <h2>Auditorium Name : {{$auditorium->nameAudi}}</h2>
 
     <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
 <div  >
 
 <div >
   <div  class="carousel slide carousel-fade" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></button>
-    </div>
+                <div class="carousel-indicators">
+                     @foreach (explode(',', $auditorium->images) as $key => $imagePath)
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ $key }}" @if ($key === 0) class="active" @endif aria-current="true" aria-label="Slide {{ $key + 1 }}"></button>
+                    @endforeach
+                </div>
 
-        <div class="carousel-inner">
-          <div class="carousel-item " data-bs-interval="2000">
-          <img src="/images/audi.jpeg" class="d-block w-100" alt="..." height="600">
-          </div>
-          <div class="carousel-item" data-bs-interval="2000">
-          <img src="/images/audi1.jpeg" class="d-block w-100" alt="..." height="600">
-          </div>
-          <div class="carousel-item active" data-bs-interval="2000">
-          <img src="/images/audi2.jpeg" class="d-block w-100" alt="..." height="600">
-          </div>
-        </div>
+                <div class="carousel-inner">
+                     @foreach (explode(',', $auditorium->images) as $key => $imagePath)
+                        <div class="carousel-item @if ($key === 0) active @endif" data-bs-interval="2000">
+                            <img src="{{url ($imagePath)  }}" class="d-block w-100" alt="Image {{ $key + 1 }}" height="600">
+                </div>
+                    @endforeach
+                </div>
         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
           <span class="carousel-control-next-icon"></span>
           <span class="visually-hidden">Next</span>
@@ -59,11 +55,13 @@
   </div> 
 </div>
       </div>
-
+      @php
+            $auditoriumId = $auditorium->id;
+        @endphp
       <div class="col">
         <div class="row row-cols-2 row-cols-sm-2 g-4">
           <div class="col d-flex flex-column gap-2">
-          <a  href="{{route('audiupdate')}}" class="btn btn-primary " style="font-weight:bold;height: 40px; background-color:#573b8a;" >
+          <a  href="{{route('audiupdate',['auditoriumId' =>$auditoriumId])}}" class="btn btn-primary " style="font-weight:bold;height: 40px; background-color:#573b8a;" >
             <div >
               <svg class="bi" width="1em" height="1em">
                 <use xlink:href="#update" />
@@ -78,7 +76,7 @@
 
           <div class="col d-flex flex-column gap-2">
            
-            <a  href="{{route('graph')}}"  class="btn btn-primary " style="font-weight:bold; height: 40px; background-color:#573b8a;" >            
+            <a  href="{{route('graph',['auditoriumId' =>$auditoriumId])}}"  class="btn btn-primary " style="font-weight:bold; height: 40px; background-color:#573b8a;" >            
           <div >
               <svg class="bi" width="1em" height="1em">
                 <use xlink:href="#graph" />
@@ -91,7 +89,7 @@
 
            <div class="col d-flex flex-column gap-2">
            
-           <a  href="{{route('table')}}"  class="btn btn-primary " style="font-weight:bold; height: 40px; background-color:#573b8a;" >            
+           <a  href="{{route('table',['auditoriumId' =>$auditoriumId])}}"  class="btn btn-primary " style="font-weight:bold; height: 40px; background-color:#573b8a;" >            
          <div >
              <svg class="bi" width="1em" height="1em">
                <use xlink:href="#table" />
@@ -103,7 +101,7 @@
          </div>
          <div class="col d-flex flex-column gap-2">
            
-           <a  href="{{route('upevent')}}"  class="btn btn-primary " style="font-weight:bold; height: 40px; background-color:#573b8a;" >            
+           <a  href="{{route('upevent',['auditoriumId' =>$auditoriumId])}}"  class="btn btn-primary " style="font-weight:bold; height: 40px; background-color:#573b8a;" >            
          <div >
              <svg class="bi" width="1em" height="1em">
                <use xlink:href="#speedometer" />

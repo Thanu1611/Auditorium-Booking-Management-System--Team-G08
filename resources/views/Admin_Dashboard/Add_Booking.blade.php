@@ -1,4 +1,4 @@
-@extends('Layouts.role')
+@extends('Layouts.role',['auditorium' => $auditorium])
 @section('content')
 <form class="main" style="width:850px; height:100%; margin-top:90px; padding:20px; margin-left:auto; margin-right:auto;">
         <div ><h3>Add Booking</h3></div>

@@ -47,8 +47,10 @@
      
     <div class="col-md-6" style="margin-left:10%; margin-right:1%">
     @if(Auth::user()->role == 'admin')
-    @if(isset($auditoriumId))
         <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+        @php
+            $auditoriumId = $auditorium->id;
+        @endphp
             <li>
               <a href="{{ route('home', ['auditoriumId' => $auditoriumId]) }}" class="nav-link text-black">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"/></svg>
@@ -56,13 +58,13 @@
               </a>
             </li>
             <li>
-              <a href="{{ route('addbook')}}" class="nav-link text-black">
+              <a href="{{ route('addbook',['auditoriumId' =>$auditoriumId])}}" class="nav-link text-black">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#addbook"/></svg>
                 Add booking
               </a>
             </li>
             <li>
-              <a href="{{ route('view_book')}}" class="nav-link text-black">
+              <a href="{{ route('viewbook',['auditoriumId' => $auditoriumId])}}" class="nav-link text-black">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#viewbook"/></svg>
                 View Booking
               </a>
@@ -74,9 +76,6 @@
               </a>
             </li>
           </ul>
-            @else
-            <p>No associated auditorium found.</p>
-        @endif
     @elseif(Auth::user()->role == 'superadmin') 
     <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
             <li>
@@ -120,7 +119,7 @@
               </a>
             </li>
             <li>
-              <a href="{{ route('view_book')}}" class="nav-link text-black">
+              <a href="{{ route('viewbook')}}" class="nav-link text-black">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#viewbook"/></svg>
                 View Booking
               </a>

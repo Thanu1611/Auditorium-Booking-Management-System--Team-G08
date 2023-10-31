@@ -1,29 +1,33 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Auditorium;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function audiupdate()
+    public function audiupdate($auditoriumId)
     {
-        return view("audiupdate");
+        $auditorium = Auditorium::find($auditoriumId);
+        return view("audiupdate",compact('auditorium'));
     }
-    public function graph()
+    public function graph($auditoriumId)
     {
-        return view("graph");
+        $auditorium = Auditorium::find($auditoriumId);
+        return view("graph",compact('auditorium'));
     }
-    public function table()
+    public function table($auditoriumId)
     {
-        return view("table");
+        $auditorium = Auditorium::find($auditoriumId);
+        return view("table",compact('auditorium'));
     }
     public function tableadd()
     {
         return view("table.addfacility");
     }
-    public function upevent()
+    public function upevent($auditoriumId)
     {
-        return view("upcomingevent");
+        $auditorium = Auditorium::find($auditoriumId);
+        return view("upcomingevent",compact('auditorium'));
     }
 }
