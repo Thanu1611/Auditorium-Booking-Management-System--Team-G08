@@ -1,4 +1,4 @@
-@extends('Layouts.role')
+@extends('Home.new')
 @section('content')
 <div class="main" style="display:flex; flex-direction:row;width:1350px; height:900px; margin-top:80px; padding:10px">
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -24,7 +24,7 @@
 
 </svg>
 <div class="container px-4 py-5">
-    <h3>Super Admin Dashboard</h3>
+    <h3>CS Auditorium</h3>
 
     <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
 <div  >
@@ -35,17 +35,21 @@
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></button>
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"></button>
     </div>
 
         <div class="carousel-inner">
           <div class="carousel-item " data-bs-interval="2000">
-          <img src="https://media-cdn.tripadvisor.com/media/photo-m/1280/1a/b8/34/77/mini-auditorium-conferences.jpg" class="d-block w-100" alt="..." height="600">
+          <img src="/images/dcs2.jpg" class="d-block w-100" alt="..." height="600">
           </div>
           <div class="carousel-item" data-bs-interval="2000">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ67SmgTov6HR_yFdVLJy4bZx3EoLS9wgT6A&usqp=CAU" class="d-block w-100" alt="..." height="600">
+          <img src="/images/dcs3.jpg" class="d-block w-100" alt="..." height="600">
           </div>
           <div class="carousel-item active" data-bs-interval="2000">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQAXnIEOjAc2OV36NyBSxxOPtleEaA9fZieg&usqp=CAU" class="d-block w-100" alt="..." height="600">
+          <img src="/images/dcs5.jpg" class="d-block w-100" alt="..." height="600">
+          </div>
+          <div class="carousel-item active" data-bs-interval="2000">
+          <img src="/images/D1.jpg" class="d-block w-100" alt="..." height="600">
           </div>
         </div>
         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
@@ -60,42 +64,17 @@
 </div>
       </div>
 
-      <div class="col">
-        <div class="row row-cols-2 row-cols-sm-2 g-4">
-          <div class="col d-flex flex-column gap-2">
-          <a  href="{{route('newone')}}" class="btn btn-primary " style="font-weight:bold;height: 40px; background-color:#573b8a;" >
-            <div >
-              <svg class="bi" width="1em" height="1em">
-                <use xlink:href="#update" />
-              </svg>
-            </div>
-          </a>
-      
-            <h4 class="fw-semibold mb-0 text-body-emphasis" >Adding an Auditorium</h4>
-            <p class="text-body-secondary">allows to add a new auditorium.
-             </p>
-          </div>
+      <div class="text-container">
+    <h3>Details</h3>
+    <p>This auditorium is located in the new computer science building which was opened in 1st of June November 2022.This has 
+        each and every facility such as A/C,well planned seating area,Smart board etc.</p>
+</div>
+    <style> .text-container {
+        position: relative;
+        top: -200px; /* Adjust the value as needed */
+    }</style>
 
-          <div class="col d-flex flex-column gap-2">
-           
-            <a  href="{{route('newone')}}"  class="btn btn-primary " style="font-weight:bold; height: 40px; background-color:#573b8a;" >            
-          <div >
-              <svg class="bi" width="1em" height="1em">
-                <use xlink:href="#graph" />
-              </svg>
-            </div></a>
-           
-            <h4 class="fw-semibold mb-0 text-body-emphasis">Adding a new admin</h4>
-            <p class="text-body-secondary">change the admin </p>
-          </div>
-
-           <div class="col d-flex flex-column gap-2">
-           
-          
-        
-          
-          
-        
+        </div>
       </div>
     </div>
   </div>
