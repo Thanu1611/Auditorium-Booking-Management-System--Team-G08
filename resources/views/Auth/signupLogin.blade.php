@@ -1,7 +1,9 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-<title>ABMS</title>   
+<title>ABMS</title>
+
 <link rel="icon" type="image/x-icon" href="/images/Uoj.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -9,6 +11,12 @@
 <link href="{{ asset('css/Auth/Login.css') }}" rel="stylesheet">
 </head>
 <body>
+<div class="layoutmain" style="display:flex; position:fixed; top:0; width:100%"> 
+    <div class="col-md-6" style="display:flex">
+        <img src="/images/audi2.png" style="width:60px; height:60px" alt="hos_logo">
+        <h3  style="padding:10px; color:#302b63; font-weight:bold; margin-top:1%">Auditorium Booking Management System</h3>
+    </div>
+</div>
   <div class="main">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="{{ asset('css/Auth/verification.js') }}" type="text/javascript"></script>
@@ -81,42 +89,50 @@
         </div>
         @endif
         <label for="chk" aria-hidden="true">Sign up</label>
-        <div style="display: flex">
+  <div class="row g-3">
+        <div class="col-md-6" style="display: flex">
           <input type="text" name="firstname" placeholder="First Name" oninput="capitalizeNames(this)"  required>
           <input type="text" name="lastname" placeholder="Last Name" oninput="capitalizeNames(this)" required>
         </div>
-        <div style="display: flex">
+        <div class="col-md-6"  style="display: flex">
           <input type="email" name="email" oninput="validateEmail(this)" placeholder="Email" required>
           <input type="text" name="mobile" placeholder="Mobile Number" oninput="validatePhoneNumber(this)"  required>
         </div>
-        <div style="display: flex">
+        <span id="email-error-msg" class="error-message"></span>
+        <span id="phone-error-msg" class="error-message"></span>
+        <div class="col-md-6" style="display: flex">
           <input type="text" name="address" placeholder="Address" oninput="capitalizeNames(this)" required>
           <input type="password" name="password" placeholder="Password" required>
         </div>
+        <div class="col-md-12" style="display: flex">
           <select id="role" name="role"  class="custom-select" onchange="toggleUserFields(this.value)">
             <option disabled selected>User Type:</option>
             <option value="internal">University Staff</option>
             <option value="external">Guest</option>
           </select>
+        </div>
         <div id="internal-fields" style="display: none;">
-          <div style="display: flex">
+          <div class="col-md-6" style="display: flex">
             <input type="text" name="faculty" oninput="capitalizeNames(this)" placeholder="Faculty">
             <input type="text" name="department" oninput="capitalizeNames(this)" placeholder="Department">
           </div>
+          <div class="col-md-6" style="display: flex">
             <input type="text" name="designation" oninput="capitalizeNames(this)" placeholder="Designation">
+          </div>
         </div>
         <div id="external-fields" style="display: none;">
-          <div style="display: flex">
+          <div class="col-md-6"style="display: flex">
             <input type="text" name="nic"oninput="validateNIC(this)" placeholder="NIC">
             <input type="text" name="organization"oninput="capitalizeNames(this)"  placeholder="Organization">
           </div>
-          <div style="display: flex">
+          <div class="col-md-6" style="display: flex">
             <input type="text" name="external-address" oninput="capitalizeNames(this)" placeholder="Organization Address">
             <input type="text" name="purpose"oninput="capitalizeNames(this)"  placeholder="Purpose">
           </div>
           <input type="hidden" name="role" value="Admin">
           <input type="hidden" id="image" name="image" value="Profile/local.png">
         </div>
+</div>
         <button>Sign up</button>
       </form>
     </div>

@@ -8,6 +8,13 @@ body{
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
   }
+  .layoutmain{
+    height: 60px;
+    width:1050px;
+    background: #f1f1f1;
+    padding:5px;
+    z-index: 9999;
+  }
   .main{
     width: 500px;
     height: 700px;
@@ -142,5 +149,10 @@ body{
     width: 47px;
 }
 
+.error-message {
+  display: none;
+  color: red;
+  font-size: 12px;
+}
 
   
