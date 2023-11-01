@@ -4,7 +4,7 @@
         <div ><h3>Add Booking</h3></div>
         <hr>
           <label for="grid-first-name">Name of the event : </label><br>
-            <input type="text" id="input" name="event" placeholder="Name of the event"/> <br>
+            <input type="text" id="input" name="nameEvent" placeholder="Name of the event"/> <br>
           <label for="grid-last-name">Details of the event:</label><br>
             <input type="text" name="Detail_event" placeholder="Details of the event"/> <br>                                                       
           <label for="booking_date">Booking Date : </label> <br>
