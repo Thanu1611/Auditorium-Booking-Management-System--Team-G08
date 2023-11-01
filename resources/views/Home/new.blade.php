@@ -37,7 +37,9 @@
         <h4  style="padding:10px; color:#302b63; font-weight:bold; margin-top:1%">Auditorium Booking Management System</h4>
     </div> 
 </div>
-<br>
+
+
+
 
     <div >
     <div class="container">

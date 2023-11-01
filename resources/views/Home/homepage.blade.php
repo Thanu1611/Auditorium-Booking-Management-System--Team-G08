@@ -19,8 +19,8 @@
 <br>
 @section('section3')
     <h3 style="font-size: 25px; color: #785;">Library Mini Auditorium</h3>
-    <img src="{{ asset('images/audi1.jpeg') }}" alt="My Image" width="300" height="200"><br><br>
-    <a href="#" button class="button button1">View  Details</button></a><br><br>
+    <img src="{{ asset('images/lib2.jpg') }}" alt="My Image" width="300" height="200"><br><br>
+    <a href="LA" button class="button button1">View  Details</button></a><br><br>
     <a href="#" button class="button button1">Add Booking</a><br><br>
 @endsection
 

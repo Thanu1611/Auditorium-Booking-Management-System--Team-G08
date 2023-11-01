@@ -46,6 +46,9 @@ Route::get('/Ka', function () {
 Route::get('/PA', function () {
     return view('Home.phy');
 });
+Route::get('/LA', function () {
+    return view('Home.lib');
+});
 
 
 //Route::post('/register', [LoginController::class, 'register'])->name('welcomeregister');
