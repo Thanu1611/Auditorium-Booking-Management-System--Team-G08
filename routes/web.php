@@ -16,7 +16,6 @@ use App\Http\Controllers\SuperAdminController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 /*
 Route::get('/', function () {
     return view('Admin_Dashboard.admin_welcome');
@@ -35,7 +34,24 @@ Route::get('/user_add_book', function () {
 })->name('user_add_book');
 
 
-Route::get('/', [LoginController::class, 'index']);
+Route::get('/', function () {
+    return view('Home.homepage');
+});
+Route::get('/CS', function () {
+    return view('Home.cs');
+});
+Route::get('/Ka', function () {
+    return view('Home.ka');
+});
+Route::get('/PA', function () {
+    return view('Home.phy');
+});
+
+
+//Route::post('/register', [LoginController::class, 'register'])->name('welcomeregister');
+
+
+Route::get('/index', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/register',[LoginController::class, 'register']);
 Route::get('/home/{auditoriumId}', [LoginController::class, 'home'])->name('home');
