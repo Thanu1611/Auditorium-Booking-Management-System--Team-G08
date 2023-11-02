@@ -47,8 +47,8 @@
 <div class="layoutmain" style="display:flex; position:fixed; top:0; width:100%"> 
     <div class="col-md-6" style="display:flex">
         <img src="/images/audi2.png" style="width:60px; height:60px" alt="hos_logo">
-        <h4  style="padding:10px; color:#302b63; font-weight:bold; text-align:left  margin-top:1%">Auditorium Booking Management System</h4>
-    </div> 
+        <h4  style="padding:10px; color:#302b63; font-weight:bold; margin-top:1%">Auditorium Booking Management System</h4>
+ </div><br>
      
     <div class="col-md-6" style="margin-left:10%; margin-right:1%">
         <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
