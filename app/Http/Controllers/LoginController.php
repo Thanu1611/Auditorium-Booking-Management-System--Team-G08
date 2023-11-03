@@ -115,6 +115,7 @@ class LoginController extends Controller
             'organization' => $request->get('organization'),
             'purpose' => $request->get('purpose'),
             'external-address' => $request->get('external-address'),
+            'image' => $request->get('image'),
             'password' => Hash::make($request->get('password')),
             'remember_tocken' => Str::random(10)
         ]);

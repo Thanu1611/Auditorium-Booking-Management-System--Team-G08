@@ -54,6 +54,7 @@ body{
     margin: 20px auto;
     border-radius: 5px; 
   }
+  
   #togglePassword {
     position: relative;
     top: 19px; /* Adjust the value as needed */
