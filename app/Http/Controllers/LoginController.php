@@ -51,7 +51,7 @@ class LoginController extends Controller
                     return back()->with('error-login', 'No associated auditorium found');
                 }
             } elseif (Auth::user()->role == 'internal') {
-                return view('InternalUser_DashBoard.user_welcome');
+                return view('InternalUser_DashBoard.Add_Booking');
             } elseif (Auth::user()->role == 'external') {
                 return view('ExternalUser_DashBoard.user_welcome');
             }
@@ -99,6 +99,7 @@ class LoginController extends Controller
             'organization' => $request->get('organization'),
             'purpose' => $request->get('purpose'),
             'external-address' => $request->get('external-address'),
+            'image' => $request->get('image'),
             'password' => Hash::make($request->get('password')),
             'remember_tocken' => Str::random(10)
         ]);

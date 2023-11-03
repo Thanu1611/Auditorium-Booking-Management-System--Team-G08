@@ -107,25 +107,19 @@
           @elseif(Auth::user()->role == 'internal') 
     <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
             <li>
-              <a href="#" class="nav-link text-black">
-                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"/></svg>
-                Dashboard
-              </a>
-            </li>
-            <li>
-              <a href="{{ route('addbook')}}" class="nav-link text-black">
+              <a href="{{ route('user_add_book')}}" class="nav-link text-black">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#addbook"/></svg>
                 Add booking
               </a>
             </li>
             <li>
-              <a href="{{ route('viewbook')}}" class="nav-link text-black">
+              <a href="{{ route('user_view_book')}}" class="nav-link text-black">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#viewbook"/></svg>
                 View Booking
               </a>
             </li>
             <li>
-              <a href="#" class="nav-link text-black">
+              <a href="{{route('logout')}}" class="nav-link text-black">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#logout"/></svg>
                 Logout
               </a>

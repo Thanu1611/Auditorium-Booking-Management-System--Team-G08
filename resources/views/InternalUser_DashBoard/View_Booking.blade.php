@@ -1,4 +1,4 @@
-@extends('Layouts.userRole')
+@extends('Layouts.role')
 @section('content')
 <div style=" width:1050px; height:600px; padding:0%">
 

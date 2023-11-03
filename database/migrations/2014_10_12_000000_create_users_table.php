@@ -30,7 +30,7 @@ return new class extends Migration
             $table->string('organization')->nullable();
             $table->string('external_address')->nullable();
             $table->string('purpose')->nullable();
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

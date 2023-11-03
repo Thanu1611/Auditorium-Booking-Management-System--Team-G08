@@ -141,13 +141,19 @@ body{
   .custom-select option:hover {
     background-color: #ccc;
   }
-  #togglePassword {
+
+  #passwordToggle {
     position: relative;
-    top: 19px; /* Adjust the value as needed */
+  }
+  
+  #togglePassword {
+    position: absolute;
+    top: 19px; 
+    right:140px;
+    transform: translateY(-50%);
     cursor: pointer;
-    height: 43px;
-    width: 47px;
-}
+    user-select: none;
+  }
 
 .error-message {
   display: none;
