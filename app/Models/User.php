@@ -31,16 +31,17 @@ class User extends Authenticatable
         'organization',
         'external_address',
         'purpose',
-        'image'
+        'image',
+        'usertype'
 
     ];
     public function auditoria()
     {
-        return $this->hasMany(Auditorium::class);
+        return $this->hasMany(Auditorium::class,'admin', 'id');
     }
-    public function event()
+    public function events()
     {
-        return $this->hasMany(Event::class);
+        return $this->hasMany(Event::class,'user', 'id');
     }
 
     /**

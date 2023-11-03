@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Auditorium;
+use App\Models\Facility;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -19,11 +20,13 @@ class DashboardController extends Controller
     public function table($auditoriumId)
     {
         $auditorium = Auditorium::find($auditoriumId);
-        return view("table",compact('auditorium'));
+        $faci=Facility::where('auditorium',$auditoriumId)->get();
+        return view("table",compact('auditorium','faci'));
     }
-    public function tableadd()
+    public function tableadd($auditoriumId)
     {
-        return view("table.addfacility");
+        $auditorium = Auditorium::find($auditoriumId);
+        return view("table.addfacility",compact('auditorium'));
     }
     public function upevent($auditoriumId)
     {

@@ -22,24 +22,23 @@
                 }, 2000); // Delay the fade out by 1.5 seconds
               </script>
           @endif
-<form method='post' action="{{route('storefaci')}}" class="main" style="width:850px; height:100%; margin-top:90px; padding:20px; margin-left:auto; margin-right:auto;">
+<form method='post' action="{{ route('updatefaci',['name' => $faci->nameFacility, 'auditorium' => $faci->auditorium])}}" class="main" style="width:850px; height:100%; margin-top:90px; padding:20px; margin-left:auto; margin-right:auto;">
  @csrf
+ @method('PUT')
         <div ><h3>Add Facility</h3></div>
         <hr>
           <label for="grid-first-name">Name of the Facility : </label><br>
-            <input name='nameFacility' type="text" id="input"/> <br>
+            <input name='nameFacility' type="text" id="input" value="{{ $faci->nameFacility }}"/> <br>
           <label for="grid-last-name">Details of the Facility:</label><br>
-            <input name='detail_Facility' type="text" /> <br>     
+            <input name='detail_Facility' type="text" value="{{ $faci->detail_Facility }}"/> <br>     
           <label for="grid-last-name">Charge of the Facility:</label><br>
-            <input type="number" name='cost' /> <br>  
+            <input type="number" value="{{$faci->cost}}" name='cost' /> <br>  
             <button type="submit" class="button" >Store</button>
-            <input type="hidden" name="auditorium" value="{{ $auditorium->id }}">     
+            <input type="hidden" name="auditorium" value="{{ $faci->auditorium }}">     
             <div class="col-12" style="padding:5px">
 
-  <a role="button" href="{{route('table',['auditoriumId' => $auditorium->id])}}"class="btn btn-primary" style="font-weight:bold; color:white; background-color:#573b8a;width: 15%;height: 40px;"> << Previous </a>
+  <a role="button" href="{{route('table',['auditoriumId' => $faci->auditorium])}}"class="btn btn-primary" style="font-weight:bold; color:white; background-color:#573b8a;width: 15%;height: 40px;"> << Previous </a>
   </div>                                            
 </form>
 
 @endsection
-
- 

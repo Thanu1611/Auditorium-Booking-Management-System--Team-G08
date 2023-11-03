@@ -9,24 +9,23 @@ class Event extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'firstname',
-        'lastname',
-        'email',
-        'mobile',
-        'address',
-        'password',
-        'role',
-        'faculty',
-        'department',
-        'designation',
-        'nic',
-        'organization',
-        'external_address',
-        'purpose',
-        'image'
-
+        'nameEvent',        
+        'detail_event',     
+        'booking_date',     
+        'extra_date',       
+        'days',             
+        'booking_time',     
+        'catering',         
+        'ac',               
+        'needs',            
+        'auditorium',
+        'approval_status',
+        'payment_status',
+        'user',
+        'cost',
+        'payment'
     ];
-    public function user()
+    public function users()
     {
         return $this->belongsTo(User::class);
     }

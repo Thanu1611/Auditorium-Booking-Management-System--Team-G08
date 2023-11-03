@@ -38,6 +38,7 @@ class SuperAdminController extends Controller
             'nameAudi' => 'required',
             'capacity' => 'nullable',
             'description' => 'nullable',
+            'cost'=>'required',
             'images.*' => ['required', 'mimes:jpeg,png,jpg,gif|max:2048'],
         ]);
     
@@ -57,6 +58,7 @@ class SuperAdminController extends Controller
             'nameAudi' => $request->input('nameAudi'),
             'capacity' => $request->input('capacity'),
             'description' => $request->input('description'),
+            'cost' => $request->input('cost'),
             'images' => $imagePath,
             'admin' => $request->input('admin'),
         ]);
@@ -95,6 +97,7 @@ class SuperAdminController extends Controller
             'nameAudi' => 'required',
             'capacity' => 'nullable',
             'description' => 'nullable',
+            'cost' => 'required',
             'images.*' => ['mimes:jpeg,png,jpg,gif|max:2048'],
         ]);
         $delete_images = $request->input('delete_images', []);
@@ -125,6 +128,7 @@ class SuperAdminController extends Controller
         $auditorium->nameAudi = $request->input('nameAudi');
         $auditorium->capacity = $request->input('capacity');
         $auditorium->description = $request->input('description');
+        $auditorium->cost = $request->input('cost');
         $auditorium->admin = $request->input('admin');
         $auditorium->save();
         if (Auth::user()->role == 'superadmin') 
@@ -166,11 +170,16 @@ class SuperAdminController extends Controller
             'external_address'=> $request->input('external_address'),
             'purpose'=> $request->input('purpose'),
             'image'=> $request->input('image'),
+            'usertype'=>$request->input('usertype'),
             'remember_tocken' => Str::random(10)
         ]);
     
         $user->save();
-        return redirect()->route('superadmin')->with('success', 'Admin added!');
+        if ($user->role == 'Admin') {
+            return redirect()->route('superadmin')->with('success', 'Admin added!');
+        } elseif ($user->role == 'customer') {
+            return redirect()->route('login')->with('error-login', 'Customer created!');
+        }
     }
     public function viewAd($id)
     {

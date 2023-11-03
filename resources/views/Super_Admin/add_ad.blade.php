@@ -61,7 +61,7 @@
             <label style="width:100px;height:30px" for="grid-first-name">Mobile  : </label>
             <input type="text" name="mobile" placeholder="" oninput="validatePhoneNumber(this)" required>
         </div>
-        <span id="phone-error-msg" style="display: none; color: purple;margin-left:220px;">Invalid phone number format</span> <!-- Move the phone number error span here -->
+        <span id="phone-error-msg" style=" display:none;color: purple;margin-left:220px;">Invalid phone number format</span> <!-- Move the phone number error span here -->
         <div class="col-md-12" style="display: flex">
             <label style="width:100px;height:30px" for="grid-first-name">Faculty : </label>
             <input type="text" name="faculty" placeholder="" oninput="capitalizeNames(this)">
@@ -76,6 +76,7 @@
         </div>
         <br>
         <input type="hidden" name="role" value="Admin">
+        <input type="hidden" name="usertype" value="internal">
         <input type="hidden" name="nic" value="">
         <input type="hidden" name="organization" value="">
         <input type="hidden" name="external_address" value="">

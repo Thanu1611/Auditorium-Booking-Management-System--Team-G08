@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SuperAdminController;
-
+use App\Http\Controllers\EventController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,13 +26,8 @@ Route::get('/', function () {
 Route::get('/add_book/{auditoriumId}', [LoginController::class, 'addbook'])->name('addbook');
 Route::get('/view_book/{auditoriumId}', [LoginController::class, 'viewbook'])->name('viewbook');
 
-Route::get('/user_view_book', function () {
-    return view('InternalUser_DashBoard.View_Booking');
-})->name('user_view_book');
-Route::get('/user_add_book', function () {
-    return view('InternalUser_DashBoard.Add_Booking');
-})->name('user_add_book');
-
+Route::get('/add_bookcus/{userId}', [LoginController::class, 'addbookcus'])->name('addbookcus');
+Route::get('/view_bookcus/{userId}', [LoginController::class, 'viewbookcus'])->name('viewbookcus');
 
 Route::get('/', function () {
     return view('Home.homepage');
@@ -47,13 +42,8 @@ Route::get('/PA', function () {
     return view('Home.phy');
 });
 
-
-//Route::post('/register', [LoginController::class, 'register'])->name('welcomeregister');
-
-
 Route::get('/index', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
-Route::post('/register',[LoginController::class, 'register']);
 Route::get('/home/{auditoriumId}', [LoginController::class, 'home'])->name('home');
 Route::get('/superdash', [LoginController::class, 'superadmindash'])->name('superdash');
 Route::get('/logout',[LoginController::class,'logout'])->name('logout');
@@ -61,10 +51,7 @@ Route::get('/audiupdate/{auditoriumId}', [DashboardController::class, 'audiupdat
 Route::get('/graph/{auditoriumId}', [DashboardController::class, 'graph'])->name('graph');
 Route::get('/upevent/{auditoriumId}', [DashboardController::class, 'upevent'])->name('upevent');
 Route::get('/table/{auditoriumId}', [DashboardController::class, 'table'])->name('table');
-Route::get('/tableadd', [DashboardController::class, 'tableadd'])->name('tableadd');
-Route::get('/superadmin', function () {
-    return view('Super_admin.add_admin');
-});
+Route::get('/tableadd/{auditoriumId}', [DashboardController::class, 'tableadd'])->name('tableadd');
 
 Route::get('/addaudi', [SuperAdminController::class, 'addaudi'])->name('addaudi');
 
@@ -87,3 +74,17 @@ Route::post('/storead', [SuperAdminController::class, 'storead'])->name('storead
 Route::get('/viewad/{id}', [SuperAdminController::class, 'viewAd'])->name('viewad');
 
 Route::delete('/admin/{id}', [SuperAdminController::class, 'destroy'])->name('destroy');
+
+Route::post('/storebook', [EventController::class, 'storebook'])->name('storebook');
+
+Route::post('/storefaci', [EventController::class, 'storefaci'])->name('storefaci');
+
+Route::get('/changeAppStatus/{eventId}', [EventController::class, 'changeAppStatus'])->name('changeAppStatus');
+
+Route::get('/disAppStatus/{eventId}', [EventController::class, 'disAppStatus'])->name('disAppStatus');
+
+Route::get('/AppStatus/{eventId}', [EventController::class, 'AppStatus'])->name('AppStatus');
+
+Route::get('/editfaci/{name}/{auditorium}', [EventController::class, 'editfaci'])->name('editfaci');
+
+Route::PUT('/updatefaci/{name}/{auditorium}', [EventController::class, 'updatefaci'])->name('updatefaci');

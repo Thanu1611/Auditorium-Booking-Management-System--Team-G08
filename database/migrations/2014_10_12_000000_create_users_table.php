@@ -21,7 +21,7 @@ return new class extends Migration
             //$table->timestamp('email_verified_at')->nullable();
             $table->string('mobile')->nullable();
             $table->string('address')->nullable();
-            $table->enum('role', ['superadmin','admin', 'internal', 'external']);
+            $table->enum('role', ['superadmin','admin','customer']);
             $table->string('password');
             $table->string('faculty')->nullable();
             $table->string('department')->nullable();
@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string('organization')->nullable();
             $table->string('external_address')->nullable();
             $table->string('purpose')->nullable();
+            $table->enum('usertype',['internal','external']);
             $table->string('image');
             $table->rememberToken();
             $table->timestamps();

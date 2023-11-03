@@ -11,6 +11,8 @@
              <input type="text" class="form-control" value="{{ $auditorium->capacity }}" readonly><br>   
           <label for="grid-last-name">Description about Auditorium:</label><br>
              <input type="text" class="form-control" value="{{ $auditorium->description }}" readonly><br>
+             <label for="grid-last-name">Cost of the Auditorium:</label><br>
+             <input type="text" class="form-control" value="{{ $auditorium->cost }}" readonly><br>
          <label for="grid-last-name">Admin:</label><br>
              <input type="text" class="form-control" value="{{ $user->firstname }} {{ $user->lastname }}" readonly><br>
           <label for="images">Auditorium images:</label>

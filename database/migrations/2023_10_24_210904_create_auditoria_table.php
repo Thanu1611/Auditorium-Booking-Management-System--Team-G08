@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('nameAudi');
             $table->string('capacity')->nullable();
             $table->string('description')->nullable();
+            $table->decimal('cost',10,2);
             $table->string('images')->nullable();
             $table->timestamps();
     

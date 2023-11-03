@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use App\Models\User;
+use App\Models\Event;
 use App\Models\Auditorium;
 use Auth;
 use Validator;
@@ -50,10 +52,9 @@ class LoginController extends Controller
                 } else {
                     return back()->with('error-login', 'No associated auditorium found');
                 }
-            } elseif (Auth::user()->role == 'internal') {
-                return view('InternalUser_DashBoard.user_welcome');
-            } elseif (Auth::user()->role == 'external') {
-                return view('ExternalUser_DashBoard.user_welcome');
+            } elseif (Auth::user()->role == 'customer') {
+                $userId = Auth::user()->id;
+                return redirect()->route('addbookcus', ['userId' => $userId]);
             }
         } else {
             return back()->with('error-login', 'WRONG LOGIN DETAILS');
@@ -72,7 +73,22 @@ class LoginController extends Controller
     public function viewbook($auditoriumId)
     {
         $auditorium = Auditorium::find($auditoriumId);
-        return view('Admin_Dashboard.View_Booking',compact('auditorium'));
+        $events = $auditorium->events;
+        $user = User::all();
+        return view('Admin_Dashboard.View_Booking',compact('auditorium','events','user'));
+    }
+    public function addbookcus($userId)
+    {
+        $user = User::find($userId);
+        $auditoriums = Auditorium::all();
+        return view('InternalUser_DashBoard.Add_Booking',compact('user','auditoriums'));
+    }
+    public function viewbookcus($userId)
+    {
+        $user = User::find($userId);
+        $audi = Auditorium::all();
+        $events = $user->events;
+        return view('InternalUser_DashBoard.View_Booking',compact('user','events','audi'));
     }
     public function superadmindash()
     {

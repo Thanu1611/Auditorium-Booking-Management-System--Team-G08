@@ -14,10 +14,15 @@ class Auditorium extends Model
         'capacity',
         'description',
         'images',
-        'admin'
+        'admin',
+        'cost'
     ];
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+    public function events()
+    {
+        return $this->hasMany(Event::class,'auditorium', 'id');
     }
 }
