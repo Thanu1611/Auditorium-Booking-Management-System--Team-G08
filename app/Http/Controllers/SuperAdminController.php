@@ -178,7 +178,7 @@ class SuperAdminController extends Controller
         if ($user->role == 'Admin') {
             return redirect()->route('superadmin')->with('success', 'Admin added!');
         } elseif ($user->role == 'customer') {
-            return redirect()->route('login')->with('error-login', 'Customer created!');
+            return redirect()->route('login')->with('success-login', 'Customer created!');
         }
     }
     public function viewAd($id)

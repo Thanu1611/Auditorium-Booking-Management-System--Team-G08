@@ -122,7 +122,7 @@
           <input type="password" name="password" placeholder="Password" required>
         </div>
         <div class="col-md-12" style="display: flex">
-            <select id="role" name="role"  class="custom-select" onchange="toggleUserFields(this.value)">
+            <select id="role" name="usertype"  class="custom-select" onchange="toggleUserFields(this.value)">
               <option disabled selected>User Type:</option>
               <option value="internal">University Staff</option>
               <option value="external">Guest</option>
@@ -143,7 +143,7 @@
               <input type="text" name="organization"oninput="capitalizeNames(this)"  placeholder="Organization">
             </div>
             <div class="col-md-6" style="display: flex">
-              <input type="text" name="external-address" oninput="capitalizeNames(this)" placeholder="Organization Address">
+              <input type="text" name="external_address" oninput="capitalizeNames(this)" placeholder="Organization Address">
               <input type="text" name="purpose"oninput="capitalizeNames(this)"  placeholder="Purpose">
             </div>
           <input type="hidden" name="role" value="customer">

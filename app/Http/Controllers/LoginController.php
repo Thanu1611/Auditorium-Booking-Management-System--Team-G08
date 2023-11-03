@@ -108,13 +108,14 @@ class LoginController extends Controller
             'address' => $request->get('address'),
             'mobile' => $request->get('mobile'),
             'role' => $request->get('role'),
+            'usertype' => $request->get('usertype'),
             'faculty' => $request->get('faculty'),
             'department' => $request->get('department'),
             'designation' => $request->get('designation'),
             'nic' => $request->get('nic'),
             'organization' => $request->get('organization'),
             'purpose' => $request->get('purpose'),
-            'external-address' => $request->get('external-address'),
+            'external_address' => $request->get('external_address'),
             'image' => $request->get('image'),
             'password' => Hash::make($request->get('password')),
             'remember_tocken' => Str::random(10)
@@ -123,7 +124,7 @@ class LoginController extends Controller
         $user->save();
 
         if($user){
-            return redirect()->back()->with('success-login', 'User Created Successfully');
+            return redirect()->back()->with('success-signup', 'User Created Successfully');
         }
         else{
             return redirect()->back()->with('error-signup', 'User Not Created');
