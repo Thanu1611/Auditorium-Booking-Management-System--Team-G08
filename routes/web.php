@@ -41,6 +41,9 @@ Route::get('/Ka', function () {
 Route::get('/PA', function () {
     return view('Home.phy');
 });
+Route::get('/LA', function () {
+    return view('Home.lib');
+});
 
 Route::get('/index', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
