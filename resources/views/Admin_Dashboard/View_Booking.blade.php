@@ -43,11 +43,13 @@
 		</div>	
 		@elseif($event->approval_status=='approved' && $event->payment_status=='paid')
 		<div class="col-md-6">
-			<td colspan=3><a role="button" class="btn btn-light" style="font-weight:bold; color:white; background-color:#f350a4;width: 100%;height: 40px;" href="#" >Check Payment</a></td>
+        <td><a role="button" class="btn btn-light" style="font-weight:bold; color:white; background-color:#f350a4;width: 100%;height: 40px;" href="#" >View</a></td>
+			<td colspan=2><a role="button" class="btn btn-light" style="font-weight:bold; color:white; background-color:#f350a4;width: 100%;height: 40px;" href="{{route('checkpay',['eventId' => $event->id])}}" >Check Payment</a></td>
         </div>	
         @elseif($event->approval_status=='approved' && $event->payment_status=='done')
 		<div class="col-md-6">
-			<td colspan=3>Booked</td>
+        <td><a role="button" class="btn btn-light" style="font-weight:bold; color:white; background-color:#f350a4;width: 100%;height: 40px;" href="#" >View</a></td>
+			<td colspan=2>Auditorium Booked</td>
         </div>	
 		@elseif($event->approval_status=='disapproved')
             <td colspan=3>Cancelled By You</td>

@@ -39,17 +39,17 @@
         @elseif($event->approval_status=='approved' && $event->payment_status=='none')
 		<div class="col-md-6">
 			<td><a role="button" class="btn btn-light" style="font-weight:bold; color:white; background-color:#f350a4;width: 100%;height: 40px;" href="#" >View</a></td>
-            <td><a role="button" class="btn btn-light" style="font-weight:bold; color:white; background-color:#f350a4;width: 100%;height: 40px;" href="#" > Pay</a></td>
+            <td colspan=2><a role="button" class="btn btn-light" style="font-weight:bold; color:white; background-color:#f350a4;width: 100%;height: 40px;" href="{{route('pay',['eventId' => $event->id])}}" > Pay</a></td>
 		</div>	
         @elseif($event->approval_status=='approved' && $event->payment_status=='paid')
 		<div class="col-md-6">
 			<td><a role="button" class="btn btn-light" style="font-weight:bold; color:white; background-color:#f350a4;width: 100%;height: 40px;" href="#" >View</a></td>
-            <td>Waiting for confimation</td>
+            <td colspan=2>Waiting for confimation</td>
         </div>	
 		@elseif($event->approval_status=='approved' && $event->payment_status=='done')
 		<div class="col-md-6">
 			<td><a role="button" class="btn btn-light" style="font-weight:bold; color:white; background-color:#f350a4;width: 100%;height: 40px;" href="#" >View</a></td>
-            <td>Booked</td>
+            <td colspan=2> Auditorium Booked</td>
         </div>	
 		@elseif($event->approval_status=='disapproved')
             <td colspan=3>Cancelled By Auditorium Management</td>

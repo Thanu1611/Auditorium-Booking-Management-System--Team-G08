@@ -56,7 +56,7 @@
            
            
             <li style="margin-left: 340px; ">
-              <a href="#" class="nav-link text-black">
+              <a href="{{route('login')}}" class="nav-link text-black">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#login"/></svg>
                 Login
               </a>

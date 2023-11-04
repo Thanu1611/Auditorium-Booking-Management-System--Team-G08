@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Facility;
 use Illuminate\Http\Request;
 use Auth;
+use Validator;
 use Illuminate\Support\Facades\DB;
 
 class EventController extends Controller
@@ -123,5 +124,52 @@ class EventController extends Controller
         ->where('id', $eventId)
         ->update(['approval_status' => 'approved']);
         return redirect()->route('viewbook',['auditoriumId' => $event->auditorium]);
+    }
+    public function pay($eventId)
+    {
+        $event = Event::find($eventId);
+        $user = User::find($event->user);
+        return view('paymentform',compact('event','user'));
+    }
+    public function updatepay(Request $request, $eventId)
+    {
+        $event = Event::find($eventId);
+        $user = User::find($event->user);
+    
+        $validator = Validator::make($request->all(), [
+            'nameEvent' => 'required',
+            'cost' => 'required',
+            'payment' => ['required', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
+        ]);
+    
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+    
+        $imagePath = null;
+        if ($request->hasFile('payment')) {
+            $image = $request->file('payment');
+            $filename = date('YmdHi') . $image->getClientOriginalName();
+            $image->move(public_path('payment'), $filename);
+            $imagePath = 'payment/' . $filename;
+        }
+    
+        $event->update(['payment' => $imagePath, 'payment_status' => 'paid']);
+        return redirect()->route('viewbookcus', ['userId' => $user->id]);
+    }
+    public function checkpay($eventId)
+    {
+        $event = Event::find($eventId);
+        $auditorium = Auditorium::find($event->auditorium);
+        $user = User::find($event->user);
+        return view('checkpay',compact('event','auditorium','user'));
+    }
+    public function confirmpay(Request $request, $eventId)
+    {
+        $event = Event::find($eventId);
+        $user = User::find($event->user);
+        $auditorium=Auditorium::find($event->auditorium);        
+        $event->update([ 'payment_status' => 'done']);
+        return redirect()->route('viewbook', ['auditoriumId' => $auditorium->id]);
     }
 }

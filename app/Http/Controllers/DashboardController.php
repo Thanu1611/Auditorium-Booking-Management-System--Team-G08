@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 use App\Models\Auditorium;
 use App\Models\Facility;
+use App\Models\Event;
 use Illuminate\Http\Request;
+use Auth;
+use Validator;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -31,6 +35,7 @@ class DashboardController extends Controller
     public function upevent($auditoriumId)
     {
         $auditorium = Auditorium::find($auditoriumId);
-        return view("upcomingevent",compact('auditorium'));
+        $events = $auditorium->events;
+        return view("upcomingevent",compact('auditorium','events'));
     }
 }

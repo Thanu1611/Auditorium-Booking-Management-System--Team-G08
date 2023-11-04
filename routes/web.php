@@ -88,6 +88,14 @@ Route::get('/disAppStatus/{eventId}', [EventController::class, 'disAppStatus'])-
 
 Route::get('/AppStatus/{eventId}', [EventController::class, 'AppStatus'])->name('AppStatus');
 
+Route::get('/pay/{eventId}', [EventController::class, 'pay'])->name('pay');
+
+Route::get('/checkpay/{eventId}', [EventController::class, 'checkpay'])->name('checkpay');
+
 Route::get('/editfaci/{name}/{auditorium}', [EventController::class, 'editfaci'])->name('editfaci');
 
 Route::PUT('/updatefaci/{name}/{auditorium}', [EventController::class, 'updatefaci'])->name('updatefaci');
+
+Route::PUT('/updatepay/{eventId}', [EventController::class, 'updatepay'])->name('updatepay');
+
+Route::PUT('/confirmpay/{eventId}', [EventController::class, 'confirmpay'])->name('confirmpay');

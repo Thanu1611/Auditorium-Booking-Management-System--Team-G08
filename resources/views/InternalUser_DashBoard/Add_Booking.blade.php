@@ -22,6 +22,12 @@
                 }, 2000); // Delay the fade out by 1.5 seconds
               </script>
           @endif
+<style>
+    .disabled-date {
+        background-color: #f2f2f2; /* Replace with your desired color */
+        color: #999999; /* Replace with your desired color */
+    }
+</style>
 <form class="main" method="post" action="{{ route ('storebook') }}" style="width:850px; height:100%; margin-top:90px; padding:20px; margin-left:auto; margin-right:auto;">
  @csrf
         <div ><h3>Add Booking</h3></div>
@@ -108,6 +114,26 @@
   function clearInternalFields() {
     document.getElementsByName("days")[0].value = "";
   }
+
+
+
+    const takenDates = @json($takenDates);
+
+    const dateInput = document.getElementById('booking_date');
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.min = today;
+
+    dateInput.addEventListener('input', () => {
+        const selectedDate = dateInput.value;
+        if (selectedDate && (selectedDate < today || takenDates.includes(selectedDate))) {
+            dateInput.setCustomValidity('Please select a valid and available date.');
+            dateInput.classList.add('disabled-date'); // Add the CSS class
+        } else {
+            dateInput.setCustomValidity('');
+            dateInput.classList.remove('disabled-date'); // Remove the CSS class
+        }
+    });
+
 </script>
 @endsection
 

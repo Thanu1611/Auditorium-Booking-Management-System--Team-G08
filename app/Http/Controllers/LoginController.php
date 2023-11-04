@@ -81,13 +81,15 @@ class LoginController extends Controller
     {
         $user = User::find($userId);
         $auditoriums = Auditorium::all();
-        return view('InternalUser_DashBoard.Add_Booking',compact('user','auditoriums'));
+        $takenDates = DB::table('events')->pluck('booking_date')->toArray();
+        return view('InternalUser_DashBoard.Add_Booking',compact('user','auditoriums','takenDates'));
     }
     public function viewbookcus($userId)
     {
         $user = User::find($userId);
         $audi = Auditorium::all();
         $events = $user->events;
+        
         return view('InternalUser_DashBoard.View_Booking',compact('user','events','audi'));
     }
     public function superadmindash()
