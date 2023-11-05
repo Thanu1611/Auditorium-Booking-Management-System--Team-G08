@@ -6,7 +6,7 @@
 
 <div class="col-12" style="padding:5px; position: relative;
         top: -50px;" >
-            <a role="button"  href="#" class="btn btn-primary" style="font-weight:bold; color:white; background-color:#573b8a;width: 15%;height: 40px;"> << Previous </a>
+            <a role="button"  href="{{route('welcome')}}" class="btn btn-primary" style="font-weight:bold; color:white; background-color:#573b8a;width: 15%;height: 40px;"> << Previous </a>
         </div>
 
     <h3 style="  color: #573b8a";>Kailasapathy Auditorium</h3>

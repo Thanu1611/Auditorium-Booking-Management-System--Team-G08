@@ -16,6 +16,20 @@
         <img src="/images/audi2.png" style="width:60px; height:60px" alt="hos_logo">
         <h3  style="padding:10px; color:#302b63; font-weight:bold; margin-top:1%">Auditorium Booking Management System</h3>
     </div>
+        <div class="col-md-6" style="margin-left:10%; margin-right:1%">
+        <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+            
+           
+           
+            <li style="margin-left: 340px; ">
+              <a href="{{route('welcome')}}" class="nav-link text-black">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#login"/></svg>
+                Home
+              </a>
+            </li>
+          </ul>
+ 
+    </div>
 </div>
   <div class="main">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

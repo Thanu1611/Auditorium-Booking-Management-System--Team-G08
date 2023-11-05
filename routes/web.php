@@ -36,7 +36,7 @@ Route::get('/user_add_book', function () {
 
 Route::get('/', function () {
     return view('Home.homepage');
-});
+})->name('welcome');
 Route::get('/CS', function () {
     return view('Home.cs');
 });
