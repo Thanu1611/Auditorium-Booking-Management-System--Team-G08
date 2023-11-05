@@ -20,7 +20,6 @@
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></button>
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"></button>
     </div>
 
         <div class="carousel-inner">
@@ -28,24 +27,32 @@
           <img src="/images/dcs2.jpg" class="d-block w-100" alt="..." height="600">
           </div>
           <div class="carousel-item" data-bs-interval="2000">
-          <img src="/images/dcs3.jpg" class="d-block w-100" alt="..." height="600">
+          <img src="/images/newseats.jpg" class="d-block w-100" alt="..." height="600">
           </div>
           <div class="carousel-item active" data-bs-interval="2000">
           <img src="/images/dcs5.jpg" class="d-block w-100" alt="..." height="600">
           </div>
-          <div class="carousel-item active" data-bs-interval="2000">
-          <img src="/images/D1.jpg" class="d-block w-100" alt="..." height="600">
-          </div>
+          
         </div>
         
   </div> 
 </div>
       </div>
-
+      <div class="text-container" style="margin-bottom: -450px;">
       <div class="text-container">
     <h3>Details</h3>
-    <p>This auditorium is located in the new computer science building which was opened in 1st of June November 2022.This has 
-        each and every facility such as A/C,well planned seating area,Smart board etc.</p>
+    <br>
+    <h5>
+    <p style="margin-bottom: 5px;"> &#x2714; This auditorium has a seating capacity of 150.<br></p>
+    <p style="margin-bottom: 6px;"> &#x2714; AC/Non AC.<br></p>
+    <p style="margin-bottom: 6px;"> &#x2714; Raked seating Area.<br></p>
+    <p style="margin-bottom: 6px;"> &#x2714; TIP-UP seating mechanisum with arm.<br></p>
+    <p style="margin-bottom: 6px;"> &#x2714; Multimedia projector.<br></p>
+    <p style="margin-bottom: 6px;"> &#x2714; Handheld Microphone.<br></p>
+    <p style="margin-bottom: 6px;"> &#x2714; Controllable Light System.<br></p>
+    <p style="margin-bottom: 6px;"> &#x2714; Smart Board.<br></p></h5>
+    
+</p>
 </div>
     <style> .text-container {
         position: relative;
@@ -56,5 +63,5 @@
       </div>
     </div>
   </div>
-
+  </div>
 @endsection

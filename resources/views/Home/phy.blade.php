@@ -38,10 +38,17 @@
 </div>
       </div>
 
+      <div class="text-container" style="margin-bottom: -450px;">
       <div class="text-container">
-    <h3 >Details</h3>
-    <p>This auditorium is located in the new computer science building which was opened in 1st of June November 2022.This has 
-        each and every facility such as A/C,well planned seating area,Smart board etc.</p>
+    <h3>Details</h3>
+    <br>
+    <h5>
+    <p style="margin-bottom: 5px;"> &#x2714; This auditorium has a seating capacity of 40.<br></p>
+    <p style="margin-bottom: 6px;"> &#x2714; AC/Non AC.<br></p>
+    <p style="margin-bottom: 6px;"> &#x2714; Multimedia projector.<br></p>
+    <p style="margin-bottom: 6px;"> &#x2714; Cordium Microphone.<br></p>
+    <p style="margin-bottom: 6px;"> &#x2714; Flat Floor Seating System.<br></p>
+</p>
 </div>
     <style> .text-container {
         position: relative;

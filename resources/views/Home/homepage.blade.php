@@ -1,6 +1,6 @@
 @extends('Home.master')
 
-@section('section1')
+@section('section2')
     <h3 style="font-size: 25px; color: #987;">Kailasapathy Auditorium</h3>
     <img src="{{ asset('images/Kaila.jpg') }}" alt="My Image" width="300" height="200"><br><br>
     <a href="Ka" button class="button button1">View Details</a><br><br>
@@ -9,7 +9,7 @@
 @endsection
 
 
-@section('section2')
+@section('section1')
     
     <h3 style="font-size: 25px; color: #987;">CS Auditorium</h3>
     <img src="{{ asset('images/DCS.jpg') }}" alt="My Image" width="300" height="200"><br><br>

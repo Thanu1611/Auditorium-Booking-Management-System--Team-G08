@@ -28,7 +28,7 @@
     <div class="col-md-6" style="margin-left:10%; margin-right:1%">
         <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
          <li style="margin-left: 340px; ">
-              <a href="#" class="nav-link text-black">
+              <a href="{{route('login')}}" class="nav-link text-black">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#login"/></svg>
                 Login
               </a>
