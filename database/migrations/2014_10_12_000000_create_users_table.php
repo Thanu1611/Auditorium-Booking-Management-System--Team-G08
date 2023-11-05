@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->string('email')->unique();
-            //$table->timestamp('email_verified_at')->nullable();
             $table->string('mobile')->nullable();
             $table->string('address')->nullable();
             $table->enum('role', ['superadmin','admin','customer']);
@@ -34,6 +33,8 @@ return new class extends Migration
             $table->string('image');
             $table->rememberToken();
             $table->timestamps();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->boolean('is_verified')->default(0);
         });
     }
     

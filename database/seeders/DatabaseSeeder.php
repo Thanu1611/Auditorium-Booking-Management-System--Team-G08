@@ -26,14 +26,15 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         User::create([
-            'firstname' => 'Tharsi',
-            'lastname'=>'karuna',
-            'email' => 'tharsi@gmail.com',
+            'firstname' => 'Thanushika',
+            'lastname'=>'Thedsanamoorthysarma',
+            'email' => 'thanush1611@gmail.com',
             'password' => Hash::make('test123'),
             'remember_token' => str::random(10),
             'role' => 'superadmin',
             'mobile' => 0767500411,
-            'image'=>'Profile/local.png'
+            'image'=>'Profile/local.png',
+            'is_verified' => 1
         ]);
     }
 }

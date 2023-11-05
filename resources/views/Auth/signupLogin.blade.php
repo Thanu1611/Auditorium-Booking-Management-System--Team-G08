@@ -19,6 +19,7 @@
           <img src="/images/audi2.png" style="width:60px; height:60px" alt="hos_logo">
           <h3  style="padding:10px; color:#302b63; font-weight:bold; margin-top:1%">Auditorium Booking Management System</h3>
       </div>
+      
   </div>
     <div class="main">
       <input type="checkbox" id="chk" aria-hidden="true">
@@ -75,7 +76,9 @@
                       <i class="fa fa-eye-slash"></i>
                   </span>
               </div>
+              <a href="{{route('forgotpassword')}}" style="color:blue;margin-left:90px"> Forgot Password </a>
           </div>
+          
           <br>
           <button>Login</button>
           </form>

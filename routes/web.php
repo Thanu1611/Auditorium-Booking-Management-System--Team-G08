@@ -32,6 +32,9 @@ Route::get('/view_bookcus/{userId}', [LoginController::class, 'viewbookcus'])->n
 Route::get('/', function () {
     return view('Home.homepage');
 });
+Route::get('/ver', function () {
+    return view('mail.verification');
+});
 Route::get('/CS', function () {
     return view('Home.cs');
 });
@@ -99,3 +102,13 @@ Route::PUT('/updatefaci/{name}/{auditorium}', [EventController::class, 'updatefa
 Route::PUT('/updatepay/{eventId}', [EventController::class, 'updatepay'])->name('updatepay');
 
 Route::PUT('/confirmpay/{eventId}', [EventController::class, 'confirmpay'])->name('confirmpay');
+
+Route::get('/verification/{id}', [SuperAdminController::class, 'verification'])->name('verification');
+Route::post('/verified', [SuperAdminController::class, 'verifiedOtp'])->name("verifiedOtp");
+Route::get('/resend-otp', [SuperAdminController::class, 'resendOtp'])->name("resendOtp");
+
+Route::get('/forgotpassword', [SuperAdminController::class, 'forgotpassword'])->name('forgotpassword');
+Route::post('/forgetpasswordlord', [SuperAdminController::class, 'forgetpasswordlord'])->name('forgetpasswordlord');
+
+Route::get('/reset-password', [SuperAdminController::class, 'resetpassword'])->name('resetpassword');
+Route::post('/reset-password', [SuperAdminController::class, 'resetpasswordlord'])->name('resetpasswordlord');
