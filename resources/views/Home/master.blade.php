@@ -64,9 +64,14 @@
           </ul>
  
     </div>
+    
     </div><br>
 
+    
     <div class="container">
+    <div class="container">
+        <h3 style="margin-bottom: 50px; color: #885"><strong> Welcome to Auditorium Booking Management System Of University Of Jaffna</strong></h3>
+</div>
         <div class="row">
             <div class="col-md-6">
                 @yield('section1')

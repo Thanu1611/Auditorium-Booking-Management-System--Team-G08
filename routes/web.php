@@ -31,7 +31,7 @@ Route::get('/view_bookcus/{userId}', [LoginController::class, 'viewbookcus'])->n
 
 Route::get('/', function () {
     return view('Home.homepage');
-});
+})->name('welcome');
 Route::get('/ver', function () {
     return view('mail.verification');
 });
