@@ -87,27 +87,6 @@
     <div class="signup">
       <form action="{{ route ('storead') }}"  method="post">
         @csrf
-        <!-- Authentication Error -->
-        @if($message = Session::get('error-signup'))
-        <div class='error'>
-          <strong> {{$message}} </strong>
-        </div>
-        @endif
-        @if($message = Session::get('success-signup'))
-        <div class="success">
-          <strong> {{$message}} </strong>
-        </div>
-        @endif
-        <!-- Validation Error -->
-        @if ($errors->any())
-        <div class='error'>
-          <ul>
-            @foreach($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-          </ul>
-        </div>
-        @endif
         <label for="chk" aria-hidden="true">Sign up</label>
   <div class="row g-3">
         <div class="col-md-6" style="display: flex">
