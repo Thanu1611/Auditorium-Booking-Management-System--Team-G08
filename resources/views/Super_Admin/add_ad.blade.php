@@ -89,5 +89,16 @@
 
 </div>                                    
 </form>
+<script>
+    const togglePasswordButton = document.querySelector('#togglePassword');
+const passwordInput = document.querySelector('#floatingPassword');
+
+togglePasswordButton.addEventListener('click', function () {
+  const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+  passwordInput.setAttribute('type', type);
+  this.querySelector('i').classList.toggle('fa-eye');
+  this.querySelector('i').classList.toggle('fa-eye-slash');
+});
+    </script>
 
 @endsection

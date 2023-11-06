@@ -91,7 +91,7 @@
                       <i class="fa fa-eye-slash"></i>
                   </span>
               </div>
-              <a href="{{route('forgotpassword')}}" style="color:black;margin-left:90px"> Forgot Password </a>
+              <a href="{{route('forgotpassword')}}" style="color:white;margin-left:90px"> Forgot Password </a>
           </div>
           
           <br>
@@ -102,27 +102,6 @@
     <div class="signup">
       <form action="{{ route ('storead') }}"  method="post">
         @csrf
-        <!-- Authentication Error -->
-        @if($message = Session::get('error-signup'))
-        <div class='error'>
-          <strong> {{$message}} </strong>
-        </div>
-        @endif
-        @if($message = Session::get('success-signup'))
-        <div class="success">
-          <strong> {{$message}} </strong>
-        </div>
-        @endif
-        <!-- Validation Error -->
-        @if ($errors->any())
-        <div class='error'>
-          <ul>
-            @foreach($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-          </ul>
-        </div>
-        @endif
         <label for="chk" aria-hidden="true">Sign up</label>
   <div class="row g-3">
         <div class="col-md-6" style="display: flex">
@@ -135,9 +114,12 @@
         </div>
         <span id="email-error-msg" class="error-message"></span>
         <span id="phone-error-msg" class="error-message"></span>
-        <div class="col-md-6" style="display: flex">
+        <div class="col-md-6" id="passwordToggleSignUp">
           <input type="text" name="address" placeholder="Address" oninput="capitalizeNames(this)" required>
-          <input type="password" name="password" placeholder="Password" required>
+          <input type="password" class="form-control" id="floatingPasswordSignUp" name="password" placeholder="Password" required>
+            <span class="input-group-text" id="togglePasswordSignUp">
+              <i class="fa fa-eye-slash"></i>
+            </span>
         </div>
         <div class="col-md-12" style="display: flex">
             <select id="role" name="usertype"  class="custom-select" onchange="toggleUserFields(this.value)">
@@ -205,14 +187,6 @@
             document.getElementsByName("external-address")[0].value = "";
             document.getElementsByName("purpose")[0].value = "";
         }
-        const togglePasswordButton = document.querySelector('#togglePassword');
-  const passwordInput = document.querySelector('#floatingPassword');
-  togglePasswordButton.addEventListener('click', function () {
-    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-    passwordInput.setAttribute('type', type);
-    this.querySelector('i').classList.toggle('fa-eye');
-    this.querySelector('i').classList.toggle('fa-eye-slash');
-  });
-    
+ 
     </script>
 </html>

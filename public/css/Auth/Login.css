@@ -1,10 +1,10 @@
 body{
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
     margin-top: 50px;
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
@@ -98,79 +98,93 @@ body{
     transform: scale(.6);
   }
 
-  #chk:checked ~ .signup{
-    transform: translateY(-710px);  /*Signup height*/
-  }
-  #chk:checked ~ .signup label{
-    transform: scale(1);	
-  }
-  #chk:checked ~ .login label{
-    transform: scale(.6);
-  }
+#chk:checked ~ .signup{
+  transform: translateY(-710px); 
+}
+#chk:checked ~ .signup label{
+  transform: scale(1);	
+}
+#chk:checked ~ .login label{
+  transform: scale(.6);
+}
 
-  .custom-select {
-    display: flex;
-    justify-content: center;
-    width: 63%;
-    height: 40px;
-    margin: 9px auto;
-    padding: 10px;
-    border: none;
-    outline: none;
-    border-radius: 5px;
-    background-color: #e0dede;
-    color: #585757;
-    font-size: 0.8em;
-    cursor: pointer;
+.custom-select {
+  display: flex;
+  justify-content: center;
+  width: 63%;
+  height: 40px;
+  margin: 9px auto;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  background-color: #e0dede;
+  color: #585757;
+  font-size: 0.8em;
+  cursor: pointer;
 
-  }
-      .custom-select::after {
-      content: "\25BC"; /* Unicode for down arrow symbol */
-      position: absolute;
-      top: 50%;
-      right: 10px;
-      transform: translateY(-50%);
-      pointer-events: none;
-    }
-  .custom-select:hover {
-    background-color: #ccc;
-  }
-  
-  .custom-select:focus {
-    background-color: #fff;
-    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
-  }
-  
-  .custom-select::placeholder {
-    color: #999;
-  }
-  
-  .custom-select option {
-    background-color: #fff;
-    color: #999;
-  }
-  
-  .custom-select option:hover {
-    background-color: #ccc;
-  }
-
-  #passwordToggle {
-    position: relative;
-  }
-  
-  #togglePassword {
+}
+    .custom-select::after {
+    content: "\25BC"; /* Unicode for down arrow symbol */
     position: absolute;
-    top: 19px; 
-    right:140px;
+    top: 50%;
+    right: 10px;
     transform: translateY(-50%);
-    cursor: pointer;
-    user-select: none;
+    pointer-events: none;
   }
+.custom-select:hover {
+  background-color: #ccc;
+}
+
+.custom-select:focus {
+  background-color: #fff;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.custom-select::placeholder {
+  color: #999;
+}
+
+.custom-select option {
+  background-color: #fff;
+  color: #999;
+}
+
+.custom-select option:hover {
+  background-color: #ccc;
+}
+
+#passwordToggle {
+  position: relative;
+}
+
+#togglePassword {
+  position: absolute;
+  top: 19px; 
+  right:140px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  user-select: none;
+}
+
+#passwordToggleSignUp {
+  position: relative;
+  display: flex;
+}
+
+#togglePasswordSignUp {
+  position: absolute;
+  top: 29px; 
+  right:20px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  user-select: none;
+}
 
 .error-message {
-  display: none;
-  color: red;
-  font-size: 12px;
+display: none;
+color: red;
+font-size: 12px;
 }
 
 .nav-link {

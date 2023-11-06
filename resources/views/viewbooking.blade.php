@@ -35,7 +35,7 @@
           <label for="grid-first-name">Name of the event : </label><br>
             <input type="text" id="input" value="{{$event->nameEvent}}" read only/> <br>
           <label for="grid-last-name">Details of the event:</label><br>
-            <input type="text" value="{{$event->detail_event}}" read only/> <br>                                                       
+            <textarea type="text"  read only> {{$event->detail_event}}</textarea><br>                                                       
           <label for="booking_date">Booking Date : </label> <br>
             <input type="text"  id="booking_date" name="booking_date" value="{{$event->booking_date}}" read only> <br>
         <br>

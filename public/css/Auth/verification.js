@@ -29,6 +29,28 @@ function validateNIC(input)
   }
 
 
+// For the login form
+const togglePasswordButton = document.querySelector('#togglePassword');
+const passwordInput = document.querySelector('#floatingPassword');
+
+togglePasswordButton.addEventListener('click', function () {
+  const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+  passwordInput.setAttribute('type', type);
+  this.querySelector('i').classList.toggle('fa-eye');
+  this.querySelector('i').classList.toggle('fa-eye-slash');
+});
+
+// For the signup form
+const togglePasswordButtonSignUp = document.querySelector('#togglePasswordSignUp');
+const passwordInputSignUp = document.querySelector('#floatingPasswordSignUp');
+
+togglePasswordButtonSignUp.addEventListener('click', function () {
+  const type = passwordInputSignUp.getAttribute('type') === 'password' ? 'text' : 'password';
+  passwordInputSignUp.setAttribute('type', type);
+  this.querySelector('i').classList.toggle('fa-eye');
+  this.querySelector('i').classList.toggle('fa-eye-slash');
+});
+
 
     function toggleUserFields(userType) {
         const internalFields = document.getElementById("internal-fields");
@@ -86,7 +108,6 @@ function validateNIC(input)
             document.getElementById(input.name + "-error-msg").style.display = "none";
         });
     });
-
   function toggleUserFields(extraDate) {
     const yesDiv = document.getElementById("yes");
 
