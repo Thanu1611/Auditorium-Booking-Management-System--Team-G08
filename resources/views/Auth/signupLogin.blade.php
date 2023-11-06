@@ -120,9 +120,12 @@
         </div>
         <span id="email-error-msg" class="error-message"></span>
         <span id="phone-error-msg" class="error-message"></span>
-        <div class="col-md-6" style="display: flex">
+        <div class="col-md-6" id="passwordToggleSignUp">
           <input type="text" name="address" placeholder="Address" oninput="capitalizeNames(this)" required>
-          <input type="password" name="password" placeholder="Password" required>
+          <input type="password" class="form-control" id="floatingPasswordSignUp" name="password" placeholder="Password" required>
+            <span class="input-group-text" id="togglePasswordSignUp">
+              <i class="fa fa-eye-slash"></i>
+            </span>
         </div>
         <div class="col-md-12" style="display: flex">
             <select id="role" name="usertype"  class="custom-select" onchange="toggleUserFields(this.value)">
