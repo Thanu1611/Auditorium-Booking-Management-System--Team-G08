@@ -36,8 +36,6 @@
             <input type="number" name="capacity" value="{{ $auditorium->capacity }}" /> <br>     
           <label for="grid-last-name">Description about Auditorium:</label><br>
             <input type="text" name="description" value="{{ $auditorium->description }}"/> <br> 
-            <label for="grid-last-name">Cost:</label><br>
-            <input type="text" name="cost" value="{{ $auditorium->cost }}" /> <br> 
           <label for="grid-last-name">Admin:</label><br><br>
             <select name="admin" class="p-2 text-dark bg-light border border-dark-subtle rounded-3" style="width:485px">
                 <option  selected aria-label="Disabled select example" disabled >Select Admin name</option>

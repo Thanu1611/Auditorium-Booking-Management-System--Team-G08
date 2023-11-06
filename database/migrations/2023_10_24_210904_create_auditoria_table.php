@@ -16,17 +16,24 @@ return new class extends Migration
 
         Schema::create('auditoria', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('admin'); // Define it as an unsigned big integer
+            $table->unsignedBigInteger('admin')->default(0); // Define it as an unsigned big integer
             $table->string('nameAudi');
             $table->string('capacity')->nullable();
             $table->string('description')->nullable();
-            $table->decimal('cost',10,2);
             $table->string('images')->nullable();
             $table->timestamps();
     
             // Define the foreign key constraint
             $table->foreign('admin')->references('id')->on('users');
         });
+
+        DB::table('auditoria')->insert([
+            'admin'=>1,
+            'nameAudi' => 'dummyAudi',
+            'capacity'=>0,
+            'description'=>'for the dummy purpose',
+            'images'=>''
+        ]);
     }
 
     /**

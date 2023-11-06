@@ -13,12 +13,27 @@
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
 
   </head>
+ 
 <body>
   <div class="layoutmain" style="display:flex; position:fixed; top:0; width:100%"> 
       <div class="col-md-6" style="display:flex">
           <img src="/images/audi2.png" style="width:60px; height:60px" alt="hos_logo">
           <h3  style="padding:10px; color:#302b63; font-weight:bold; margin-top:1%">Auditorium Booking Management System</h3>
       </div>
+      <div class="col-md-6" style="margin-left:10%; margin-right:1%">
+        <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small" style="margin-left: 600px; ">
+        <li>
+        <div style="margin-left: 100px; " >
+        <a href="{{ route('welcome') }}" class="nav-link text-black">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24">
+                <path d="M12 2.0996094 L1 12 L4 12 L4 21 L11 21 L11 15 L13 15 L13 21 L20 21 L20 12 L23 12 L12 2.0996094 z M12 4.7910156 L18 10.191406 L18 11 L18 19 L15 19 L15 13 L9 13 L9 19 L6 19 L6 10.191406 L12 4.7910156 z"></path>
+            </svg>
+            <span class="nav-text">Home</span>
+        </a>
+        </div>
+      </li>
+      </ul>
+</div>
       
   </div>
     <div class="main">
@@ -76,7 +91,7 @@
                       <i class="fa fa-eye-slash"></i>
                   </span>
               </div>
-              <a href="{{route('forgotpassword')}}" style="color:blue;margin-left:90px"> Forgot Password </a>
+              <a href="{{route('forgotpassword')}}" style="color:black;margin-left:90px"> Forgot Password </a>
           </div>
           
           <br>
@@ -190,5 +205,14 @@
             document.getElementsByName("external-address")[0].value = "";
             document.getElementsByName("purpose")[0].value = "";
         }
+        const togglePasswordButton = document.querySelector('#togglePassword');
+  const passwordInput = document.querySelector('#floatingPassword');
+  togglePasswordButton.addEventListener('click', function () {
+    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordInput.setAttribute('type', type);
+    this.querySelector('i').classList.toggle('fa-eye');
+    this.querySelector('i').classList.toggle('fa-eye-slash');
+  });
+    
     </script>
 </html>

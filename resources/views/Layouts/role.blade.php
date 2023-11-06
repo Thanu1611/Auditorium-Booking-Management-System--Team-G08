@@ -12,9 +12,6 @@
         <script src="{{ asset('bootstrap/js/bootstrap.bunddle.min.js') }}" ></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
 
  
@@ -68,12 +65,6 @@
               </a>
             </li>
             <li>
-              <a href="{{ route('addbook',['auditoriumId' =>$auditoriumId])}}" class="nav-link text-black">
-                <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#addbook"/></svg>
-                Add booking
-              </a>
-            </li>
-            <li>
               <a href="{{ route('viewbook',['auditoriumId' => $auditoriumId])}}" class="nav-link text-black">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#viewbook"/></svg>
                 View Booking
@@ -88,12 +79,12 @@
           </ul>
     @elseif(Auth::user()->role == 'superadmin') 
     <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
-            <li>
-              <a href="{{ route('superdash')}}" class="nav-link text-black">
+           <!--   <li>
+            <a href="{{ route('superdash')}}" class="nav-link text-black">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"/></svg>
                 Dashboard
               </a>
-            </li>
+            </li>-->
 
             <li>
               <a href="{{ route('superadmin')}}" class="nav-link text-black">
@@ -144,10 +135,11 @@
 
   <div >
     <div class="container">
-      @yield('content') 
-      <script src="{{ asset('css/Auth/verification.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('css/Auth/verification.js') }}" type="text/javascript"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      @yield('content') 
+
     </div>
   </div>
 

@@ -7,9 +7,9 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-use App\Models\User;
+use App\Models\Facility;
 
-class DatabaseSeeder extends Seeder
+class FacilitySeeder extends Seeder
 {
     /**
      * Seed the application's database.
@@ -25,16 +25,11 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        User::create([
-            'firstname' => 'Thanushika',
-            'lastname'=>'Thedsanamoorthysarma',
-            'email' => 'abmsuoj@gmail.com',
-            'password' => Hash::make('test123'),
-            'remember_token' => str::random(10),
-            'role' => 'superadmin',
-            'mobile' => 0767500411,
-            'image'=>'Profile/local.png',
-            'is_verified' => 1
+        DB::table('facilities')->insert([
+            ['auditorium' =>1,'nameFacility' => 'Hour_Payment', 'detail_Facility' => 'Default hour payment', 'cost' => 2500],
+            ['auditorium' =>1,'nameFacility' => 'AC', 'detail_Facility' => 'Default AC charge for hour', 'cost' => 500],
+            ['auditorium' =>1,'nameFacility' => 'Using_
+            Device', 'detail_Facility' => 'Default device usage charge', 'cost' => 2000],
         ]);
     }
 }

@@ -36,6 +36,25 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->boolean('is_verified')->default(0);
         });
+        DB::table('users')->insert([
+            'firstname'=> 'dummy',
+            'lastname'=> 'dummy',
+            'email'=> 'dummy@gmail.com',
+            'mobile'=> 0712345670,
+            'address'=> 'dummy',
+            'password'=> 'dummy123',
+            'role'=>'admin',
+            'faculty'=> 'dummy',
+            'department'=> 'dummy',
+            'designation'=> 'dummy',
+            'nic'=> '',
+            'organization'=> '',
+            'external_address'=> '',
+            'purpose'=> '',
+            'image'=> '',
+            'usertype'=> 'internal',
+            'is_verified'=>1
+        ]);
     }
     
     /**

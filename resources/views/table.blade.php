@@ -40,7 +40,7 @@
         <td >{{++$i}}</td>
         <td >{{$facis->nameFacility}}</td>
         <td >{{$facis->cost}}</td>
-        <td><a role="button" class="btn btn-light" style="font-weight:bold; color:white; background-color:#f350a4;width: 20%;height: 40px;" href="{{route('editfaci',['name' => $facis->nameFacility, 'auditorium' => $facis->auditorium])}}" >Edit</a></td>
+        <td><a role="button" class="btn btn-light" style="font-weight:bold; color:white; background-color:#f350a4;width: 40%;height: 40px;" href="{{route('editfaci',['name' => $facis->nameFacility, 'auditorium' => $facis->auditorium])}}" >Edit</a></td>
 
     </tr>
     @endforeach

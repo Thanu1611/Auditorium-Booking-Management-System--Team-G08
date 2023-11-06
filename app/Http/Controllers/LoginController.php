@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use App\Models\User;
 use App\Models\Event;
 use App\Models\Auditorium;
+use App\Models\Facility;
 use Auth;
 use Validator;
 
@@ -40,7 +41,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($user_data)) {
             if (Auth::user()->role == 'superadmin') {
-                return redirect()->route('superdash'); // Superadmins go to the superadmin dashboard
+                return redirect()->route('superadmin');
             } elseif (Auth::user()->role == 'admin') {
                 // Check if the admin is associated with an auditorium
                 $adminId = Auth::user()->id;
@@ -65,11 +66,11 @@ class LoginController extends Controller
         $auditorium = Auditorium::find($auditoriumId);
         return view('Admin_Dashboard.admin_welcome',compact('auditorium'));
     }
-    public function addbook($auditoriumId)
+   /* public function addbook($auditoriumId)
     {
         $auditorium = Auditorium::find($auditoriumId);
         return view('Admin_Dashboard.Add_Booking',compact('auditorium'));
-    }
+    }*/
     public function viewbook($auditoriumId)
     {
         $auditorium = Auditorium::find($auditoriumId);
@@ -80,10 +81,17 @@ class LoginController extends Controller
     public function addbookcus($userId)
     {
         $user = User::find($userId);
-        $auditoriums = Auditorium::all();
+        $auditoriums = Auditorium::where('id', '!=', 1)->get();
         $takenDates = DB::table('events')->pluck('booking_date')->toArray();
+        //$facilities = Facility::all();
         return view('InternalUser_DashBoard.Add_Booking',compact('user','auditoriums','takenDates'));
     }
+    public function getFacilitiesForAuditorium(Request $request) {
+        $auditoriumId = $request->input('auditorium');
+        $facilities = Facility::where('auditorium', $auditoriumId)
+            ->get();
+        return response()->json($facilities);
+    }    
     public function viewbookcus($userId)
     {
         $user = User::find($userId);
@@ -96,7 +104,52 @@ class LoginController extends Controller
     {
         return view("Super_Admin.dashboard");
     }
-    public function register(Request $request)
+
+public function calculateCost(Request $request)
+{
+    $selectedFacilityIds = $request->input('facilities');
+    $auditoriumId = $request->input('auditorium');
+    $startTime = $request->input('startTime');
+    $endTime = $request->input('endTime');
+
+    // Calculate the total cost for selected facilities
+    $totalCost = Facility::whereIn('id', $selectedFacilityIds)->sum('cost');
+
+    // Check if 'hour_payment' facility is associated with the auditorium
+    $hourPaymentCost = Facility::where('auditorium', $auditoriumId)
+        ->where('nameFacility', 'hour_payment')
+        ->value('cost');
+
+    if ($hourPaymentCost !== null) {
+        // Calculate the cost based on start_time and end_time for 'hour_payment'
+        $totalHours = calculateHours($startTime, $endTime);
+        $hourPaymentTotalCost = $hourPaymentCost * $totalHours;
+
+        // Add the 'hour_payment' cost to the total cost
+        $totalCost += $hourPaymentTotalCost;
+    }
+
+    return response()->json(['cost' => $totalCost]);
+}
+
+// Function to calculate hours between start_time and end_time
+function calculateHours($startTime, $endTime)
+{
+    // Convert the time strings to DateTime objects
+    $start = \DateTime::createFromFormat('H:i', $startTime);
+    $end = \DateTime::createFromFormat('H:i', $endTime);
+
+    // Calculate the time difference in hours
+    $interval = $start->diff($end);
+    $hours = $interval->h;
+    $minutes = $interval->i;
+    $totalHours = $hours + ($minutes / 60);
+
+    return $totalHours;
+}
+
+    
+    /*public function register(Request $request)
     {
         $this->validate($request, [
             'email' => 'required',
@@ -132,7 +185,7 @@ class LoginController extends Controller
             return redirect()->back()->with('error-signup', 'User Not Created');
         }
         
-    }
+    }*/
     function logout()
     {
         auth::logout();

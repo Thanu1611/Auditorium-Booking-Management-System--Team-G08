@@ -20,12 +20,8 @@ return new class extends Migration
             $table->string('nameEvent');
             $table->string('detail_event')->nullable();
             $table->string('booking_date');
-            $table->string('extra_date')->nullable();
-            $table->decimal('days')->nullable();
-            $table->string('booking_time')->nullable();
-            $table->string('catering')->nullable();
-            $table->string('ac')->nullable();
-            $table->string('needs')->nullable();
+            $table->string('start_time');
+            $table->string('end_time');
             $table->string('approval_status')->nullable();
             $table->string('payment_status')->nullable();
             $table->foreign('user')->references('id')->on('users');

@@ -112,3 +112,9 @@ Route::post('/forgetpasswordlord', [SuperAdminController::class, 'forgetpassword
 
 Route::get('/reset-password', [SuperAdminController::class, 'resetpassword'])->name('resetpassword');
 Route::post('/reset-password', [SuperAdminController::class, 'resetpasswordlord'])->name('resetpasswordlord');
+
+Route::get('/getFacilitiesForAuditorium', [LoginController::class, 'getFacilitiesForAuditorium'])->name('getFacilitiesForAuditorium');
+Route::get('/calculateCost', [LoginController::class, 'calculateCost'])->name('calculateCost');
+//Route::get('/calculateHours/{$startTime}/{$endTime}', [LoginController::class, 'calculateHours'])->name('calculateHours');
+
+Route::get('/detail/{eventId}', [EventController::class, 'detail'])->name('detail');

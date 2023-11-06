@@ -14,7 +14,7 @@
         <p class="card-text">Date: {{ $event->booking_date }}</p>
         <p class="card-text">Time: {{ $event->booking_time }}</p>
         <p class="card-text">Details: {{ $event->detail_event }}</p>
-        <a role="button" href="#" class="btn btn-primary" style="font-weight:bold; color:white; background-color:#573b8a;width: 37%;height: 40px;"> Show Full Details </a>
+        <a role="button" href="{{route('detail',['eventId' => $event->id])}}" class="btn btn-primary" style="font-weight:bold; color:white; background-color:#573b8a;width: 37%;height: 40px;"> Show Full Details </a>
       </div>
     </div>
     @endforeach

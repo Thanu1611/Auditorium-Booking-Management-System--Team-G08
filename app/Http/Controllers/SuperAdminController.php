@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Auditorium;
 use App\Models\User;
 use App\Models\PasswordReset;
+use App\Models\Facility;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Validator;
@@ -39,7 +40,7 @@ class SuperAdminController extends Controller
     }
     public function superadmina()
     {
-        $auditorium = Auditorium::all();
+        $auditorium = Auditorium::where('id', '!=', 1)->get();
         return view("Super_Admin.add_auditorium",compact('auditorium'));
     }
     public function storeaudi(Request $request)
@@ -48,7 +49,6 @@ class SuperAdminController extends Controller
             'nameAudi' => 'required',
             'capacity' => 'nullable',
             'description' => 'nullable',
-            'cost'=>'required',
             'images.*' => ['required', 'mimes:jpeg,png,jpg,gif|max:2048'],
         ]);
     
@@ -68,12 +68,21 @@ class SuperAdminController extends Controller
             'nameAudi' => $request->input('nameAudi'),
             'capacity' => $request->input('capacity'),
             'description' => $request->input('description'),
-            'cost' => $request->input('cost'),
             'images' => $imagePath,
             'admin' => $request->input('admin'),
         ]);
     
         $auditorium->save();
+        $defaultFacilities = Facility::where('auditorium', 1)->get();
+        foreach ($defaultFacilities as $defaultFacility) {
+            $newFacility = new Facility();
+            $newFacility->nameFacility = $defaultFacility->nameFacility;
+            $newFacility->detail_Facility = $defaultFacility->detail_Facility;
+            $newFacility->cost = $defaultFacility->cost;
+            $newFacility->auditorium = $auditorium->id;
+            $newFacility->save();
+        }
+
         $auditoriums = Auditorium::all();
     
         return redirect()->route('superadmina')->with('success', 'Auditorium added!');
@@ -107,7 +116,6 @@ class SuperAdminController extends Controller
             'nameAudi' => 'required',
             'capacity' => 'nullable',
             'description' => 'nullable',
-            'cost' => 'required',
             'images.*' => ['mimes:jpeg,png,jpg,gif|max:2048'],
         ]);
         $delete_images = $request->input('delete_images', []);
@@ -138,7 +146,6 @@ class SuperAdminController extends Controller
         $auditorium->nameAudi = $request->input('nameAudi');
         $auditorium->capacity = $request->input('capacity');
         $auditorium->description = $request->input('description');
-        $auditorium->cost = $request->input('cost');
         $auditorium->admin = $request->input('admin');
         $auditorium->save();
         if (Auth::user()->role == 'superadmin') 
@@ -148,7 +155,9 @@ class SuperAdminController extends Controller
     }
     public function superadmin()  //Request $request
     {
-        $admins = User::where('role','Admin')->get();
+        $admins = User::where('role', 'Admin')
+              ->where('id', '!=', 1)
+              ->get();
         return view("Super_Admin.add_admin",compact('admins'));
     }
     public function addadmin()

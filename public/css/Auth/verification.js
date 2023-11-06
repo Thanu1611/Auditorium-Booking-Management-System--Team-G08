@@ -27,15 +27,7 @@ function validateNIC(input)
       document.getElementById("nic-format-example").style.display = "inline";
     }
   }
-    const togglePasswordButton = document.querySelector('#togglePassword');
-    const passwordInput = document.querySelector('#floatingPassword');
-    togglePasswordButton.addEventListener('click', function () {
-      const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-      passwordInput.setAttribute('type', type);
-      this.querySelector('i').classList.toggle('fa-eye');
-      this.querySelector('i').classList.toggle('fa-eye-slash');
-    });
-    
+
 
 
     function toggleUserFields(userType) {
@@ -110,3 +102,7 @@ function validateNIC(input)
     function clearInternalFields() {
       document.getElementsByName("days")[0].value = "";
     }
+
+
+
+    

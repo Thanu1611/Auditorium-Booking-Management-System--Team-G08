@@ -15,7 +15,6 @@ class Auditorium extends Model
         'description',
         'images',
         'admin',
-        'cost'
     ];
     public function user()
     {

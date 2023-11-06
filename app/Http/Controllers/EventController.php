@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Auth;
 use Validator;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class EventController extends Controller
 {
@@ -18,9 +19,8 @@ class EventController extends Controller
             'nameEvent' => 'required',
             'auditorium' => 'required',
             'booking_date'=>'required',
-            'Extra-date' => 'in:yes,no',
-            'catering' => 'in:Yes,No',
-            'ac' => 'in:AC,NON AC',
+            'start_time' =>'required',
+            'end_time' =>'required',
         ]);
         $audi=Auditorium::find($request->input('auditorium'));
         $times = $request->input('booking_time');
@@ -28,16 +28,12 @@ class EventController extends Controller
         $event = new Event([
             'auditorium'=> $request->input('auditorium'),
             'user'=> $user->id,
-            'cost'=>$audi->cost,
+            'cost'=>$request->input('cost'),
             'nameEvent'=> $request->input('nameEvent'),
             'detail_event'=> $request->input('detail_event'),
             'booking_date'=> $request->input('booking_date'),
-            'extra_date'=> $request->input('extra_date'),
-            'days'=> $request->input('days'),
-            'booking_time'=> implode(',', $times),
-            'catering'=> $request->input('catering'),
-            'ac'=> $request->input('ac'),
-            'needs'=> $request->input('needs'),
+            'start_time' => $request->input('start_time'),
+            'end_time' => $request->input('end_time'),
             'approval_status'=> $request->input('approval_status'),
             'payment_status'=> $request->input('payment_status'),
             'payment'=> $request->input('payment'),
@@ -47,6 +43,45 @@ class EventController extends Controller
         if ($user->role == 'Admin') {
             return redirect()->route('superadmin')->with('success', 'event added!');
         } elseif ($user->role == 'customer') {
+            $data['email'] = $user->email;
+
+            $data['title'] = 'Welcome to auditorium';
+    
+            $data['body'] = "Hello,
+
+            🌟 Welcome to the Auditorium Magic! 🌟 We're thrilled to have you as a part of our vibrant community.
+            
+            Your booking is currently awaiting the approval of our expert admin team. Be prepared for a grand confirmation coming your way soon! 🎉
+            
+            If you didn't request this booking or if you have any questions, our dedicated support team is here to wave their magic wand and assist you. 🪄✨
+            
+            Stay enchanted,
+            
+            The Auditorium Enchantment Team 🎭✨";
+            $auditorium = Auditorium::find($request->input('auditorium'));
+            $admin = User::find($auditorium->admin);
+            
+            Mail::send('mail\mailVerification', ['data' => $data], function ($message) use ($data) {
+                $message->to($data['email'])->subject($data['title']);
+            });
+            
+
+            $data['email'] = $admin->email;
+
+            $data['title'] = 'Welcome to auditorium';
+    
+            $data['body'] = "Alert,
+
+            🌟 New booking is arrived! 🌟 
+            🎭✨";
+            $auditorium = Auditorium::find($request->input('auditorium'));
+            $admin = User::find($auditorium->admin);
+            
+            
+            Mail::send('mail\mailVerification', ['data' => $data], function ($message) use ($data) {
+                $message->to($data['email'])->subject($data['title']);
+            });
+
             $userId=$user->id;
             return redirect()->route('viewbookcus',['userId' => $userId])->with('success', 'Booking requested!');
         }
@@ -107,6 +142,49 @@ class EventController extends Controller
         DB::table('events')
         ->where('id', $eventId)
         ->update(['approval_status' => 'cancel']);
+
+        $user=User::find($event->user);
+
+        $data['email'] = $user->email;
+
+        $data['title'] = 'Welcome to auditorium';
+
+        $data['body'] = "Hello,
+
+        You cancel your booking.
+
+        If you didn't cancel this booking or if you have any questions, our dedicated support team is here to wave their magic wand and assist you. 🪄✨
+        
+        Stay enchanted,
+        
+        The Auditorium Enchantment Team 🎭✨";
+        $auditorium = Auditorium::find($event->auditorium);
+        $admin = User::find($auditorium->admin);
+        
+        Mail::send('mail\mailVerification', ['data' => $data], function ($message) use ($data) {
+            $message->to($data['email'])->subject($data['title']);
+        });
+        
+
+        $data['email'] = $admin->email;
+
+        $data['title'] = 'Welcome to auditorium';
+
+        $data['body'] = "Alert,
+
+        🌟 A booking is canceled by the customer! 🌟 
+        🎭✨";
+        $auditorium = Auditorium::find($event->auditorium);
+        $admin = User::find($auditorium->admin);
+        
+        
+        
+        Mail::send('mail\mailVerification', ['data' => $data], function ($message) use ($data) {
+            $message->to($data['email'])->subject($data['title']);
+        });
+
+
+
         return redirect()->route('viewbookcus',['userId' => $event->user]);       
     }
     public function disAppStatus($eventId)
@@ -115,6 +193,30 @@ class EventController extends Controller
         DB::table('events')
         ->where('id', $eventId)
         ->update(['approval_status' => 'disapproved']);
+        $user=User::find($event->user);
+
+        $data['email'] = $user->email;
+
+        $data['title'] = 'Welcome to auditorium';
+
+        $data['body'] = "Hello,
+
+        We can't accept your booking.
+
+        sorry for that,
+
+        If you have any questions, our dedicated support team is here to wave their magic wand and assist you. 🪄✨
+        
+        Stay enchanted,
+        
+        The Auditorium Enchantment Team 🎭✨";
+        $auditorium = Auditorium::find($event->auditorium);
+        $admin = User::find($auditorium->admin);
+        
+        Mail::send('mail\mailVerification', ['data' => $data], function ($message) use ($data) {
+            $message->to($data['email'])->subject($data['title']);
+        });
+        
         return redirect()->route('viewbook',['auditoriumId' => $event->auditorium]);
     }
     public function AppStatus($eventId)
@@ -123,6 +225,30 @@ class EventController extends Controller
         DB::table('events')
         ->where('id', $eventId)
         ->update(['approval_status' => 'approved']);
+
+        $user=User::find($event->user);
+
+        $data['email'] = $user->email;
+
+        $data['title'] = 'Welcome to auditorium';
+
+        $data['body'] = "Hello,
+
+        We accepted your booking.
+
+        please pay booking amount to the bank. Bank details and invoice are provided below.
+
+        If you have any questions, our dedicated support team is here to wave their magic wand and assist you. 🪄✨
+        
+        Stay enchanted,
+        
+        The Auditorium Enchantment Team 🎭✨";
+        $auditorium = Auditorium::find($event->auditorium);
+        $admin = User::find($auditorium->admin);
+        
+        Mail::send('mail\mailVerification', ['data' => $data], function ($message) use ($data) {
+            $message->to($data['email'])->subject($data['title']);
+        });
         return redirect()->route('viewbook',['auditoriumId' => $event->auditorium]);
     }
     public function pay($eventId)
@@ -153,6 +279,21 @@ class EventController extends Controller
             $image->move(public_path('payment'), $filename);
             $imagePath = 'payment/' . $filename;
         }
+        $auditorium = Auditorium::find($event->auditorium);
+        $admin = User::find($auditorium->admin);
+
+        $data['email'] = $admin->email;
+
+        $data['title'] = 'Welcome to auditorium';
+
+        $data['body'] = "Alert,
+
+        🌟 A customer made the payment , please check and confirm them! 🌟 
+        🎭✨";
+
+        Mail::send('mail\mailVerification', ['data' => $data], function ($message) use ($data) {
+            $message->to($data['email'])->subject($data['title']);
+        });
     
         $event->update(['payment' => $imagePath, 'payment_status' => 'paid']);
         return redirect()->route('viewbookcus', ['userId' => $user->id]);
@@ -170,6 +311,32 @@ class EventController extends Controller
         $user = User::find($event->user);
         $auditorium=Auditorium::find($event->auditorium);        
         $event->update([ 'payment_status' => 'done']);
+
+        $data['email'] = $user->email;
+
+        $data['title'] = 'Welcome to auditorium';
+
+        $data['body'] = "Hello,
+
+        We accepted your booking payment.
+        
+        If you have any questions, our dedicated support team is here to wave their magic wand and assist you. 🪄✨
+        
+        Stay enchanted,
+        
+        The Auditorium Enchantment Team 🎭✨";
+        Mail::send('mail\mailVerification', ['data' => $data], function ($message) use ($data) {
+            $message->to($data['email'])->subject($data['title']);
+        });
+        
         return redirect()->route('viewbook', ['auditoriumId' => $auditorium->id]);
+    }
+
+    public function detail($eventId)
+    {
+        $event = Event::find($eventId);
+        $auditorium = Auditorium::find($event->auditorium);
+        $user = User::find($event->user);
+        return view('viewbooking',compact('event','auditorium','user'));
     }
 }

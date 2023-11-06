@@ -74,18 +74,7 @@
              </p>
           </div>
 
-          <div class="col d-flex flex-column gap-2">
-           
-            <a  href="{{route('graph',['auditoriumId' =>$auditoriumId])}}"  class="btn btn-primary " style="font-weight:bold; height: 40px; background-color:#573b8a;" >            
-          <div >
-              <svg class="bi" width="1em" height="1em">
-                <use xlink:href="#graph" />
-              </svg>
-            </div></a>
-           
-            <h4 class="fw-semibold mb-0 text-body-emphasis">Booking Status</h4>
-            <p class="text-body-secondary">provides an interactive visual representation of the booking rate for the auditorium. </p>
-          </div>
+
 
            <div class="col d-flex flex-column gap-2">
            
